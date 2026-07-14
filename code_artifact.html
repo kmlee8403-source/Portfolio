@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이강민 포트폴리오 | Grounded Growth</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['SUITE', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            },
+            darkbg: {
+              950: '#0B0F19', // Premium midnight dark blue
+              900: '#111827',
+              800: '#1F2937',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* SUITE Font CDN Import */
+    @import url('https://cdn.jsdelivr.net/gh/sunn-us/SUITE/fonts/static/woff2/SUITE.css');
+
+    body {
+      font-family: 'SUITE', sans-serif;
+    }
+
+    /* Custom Scrollbar for Dark Mode */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+    
+    /* Elegant soft background glow representing professional tech vibes */
+    .hero-gradient {
+      background: radial-gradient(circle at 50% 30%, rgba(14, 165, 233, 0.15) 0%, transparent 60%);
+    }
+  </style>
+</head>
+<body class="bg-darkbg-950 text-slate-300 font-sans antialiased selection:bg-brand-500/20 selection:text-brand-400">
+
+  <!-- Navigation Bar -->
+  <nav class="sticky top-0 z-50 bg-darkbg-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <span class="text-brand-400 font-bold text-xl tracking-wider">PORTFOLIO</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-200 font-medium text-sm hidden sm:inline">이강민 (Lee Kangmin)</span>
+        </div>
+        <div class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium text-slate-400">
+          <a href="#about" class="hover:text-brand-400 transition">소개</a>
+          <a href="#skills" class="hover:text-brand-400 transition">강의 분야</a>
+          <a href="#experience" class="hover:text-brand-400 transition">경력 & 학력</a>
+          <a href="#lectures" class="hover:text-brand-400 transition">강의 이력</a>
+          <a href="#ai-analyzer" class="hover:text-brand-400 transition">AI 강좌 매칭</a>
+          <a href="#woodwork" class="hover:text-brand-400 transition">Wood Work</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-slate-400 hover:text-brand-400 focus:outline-none p-2" aria-label="메뉴 열기">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-darkbg-900 border-b border-slate-800 px-4 py-3 space-y-2">
+      <a href="#about" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">소개</a>
+      <a href="#skills" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">강의 분야</a>
+      <a href="#experience" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">경력 & 학력</a>
+      <a href="#lectures" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">강의 이력</a>
+      <a href="#ai-analyzer" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">AI 강좌 매칭</a>
+      <a href="#woodwork" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">Wood Work</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="relative overflow-hidden hero-gradient pt-12 pb-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <!-- Text Column -->
+        <div class="md:col-span-7 space-y-6 text-left md:text-left order-2 md:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-sm font-semibold">
+            <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse"></span>
+            Grounded Growth
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+            이강민
+          </h1>
+          <p class="text-xl sm:text-2xl font-bold text-brand-400 leading-normal">
+            메이커스 & 디지털도구 강의, 제품 개발 디자인
+          </p>
+          <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl mr-auto md:mr-0">
+            항공, 자동차, 방산, 중공업 등 산업 현장에서 계측 및 제어를 통해 다양한 성능 시험 시스템을 구축하며 전기 및 SW 엔지니어링 경험을 단단히 쌓아왔습니다. <br class="hidden sm:inline"><br>
+            그 과정에서 <strong>‘많이 아는 것’보다 ‘제대로 이해하는 것’</strong>이 더 중요하다는 확신을 얻었고, 실제 생활에서 중요하게 쓰이는 지식의 맥락과 흐름을 담아 기초를 단단하게 다질 수 있는 교육과 강의를 진행하고 있습니다.
+          </p>
+          
+          <!-- Quick Contact -->
+          <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start text-sm">
+            <a href="tel:010-4127-6544" class="flex items-center justify-center gap-2 bg-slate-900 border border-slate-800 shadow-sm hover:shadow-md hover:border-brand-500/30 transition text-slate-300 font-medium px-4 py-2.5 rounded-xl">
+              <i class="fa-solid fa-phone text-brand-400"></i>
+              010-4127-6544
+            </a>
+            <a href="mailto:plipper325@naver.com" class="flex items-center justify-center gap-2 bg-slate-900 border border-slate-800 shadow-sm hover:shadow-md hover:border-brand-500/30 transition text-slate-300 font-medium px-4 py-2.5 rounded-xl">
+              <i class="fa-solid fa-envelope text-brand-400"></i>
+              plipper325@naver.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Image Column (Frameless, naturally blending style with Dark Glow) -->
+        <div class="md:col-span-5 flex justify-center order-1 md:order-2">
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+            <!-- Frameless profile image with a smooth blend effect -->
+            <img src="이강민 사진1.png" alt="이강민 강사 프로필 사진" class="w-full h-full object-contain filter drop-shadow-[0_10px_15px_rgba(14,165,233,0.15)]" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/><circle cx=\'100\' cy=\'85\' r=\'38\' fill=\'%230ea5e9\'/><path d=\'M40 170c0-25 25-45 60-45s60 20 60 45H40z\' fill=\'%230ea5e9\'/><text x=\'100\' y=\'172\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>이강민 강사</text></svg>';">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Skills / Category Section -->
+  <section id="skills" class="py-20 bg-darkbg-900/50 border-y border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">강의 및 기술분야</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Makers Card -->
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 shadow-lg hover:border-brand-500/30 transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="h-12 w-12 rounded-2xl bg-brand-500 text-white flex items-center justify-center shadow-lg shadow-brand-500/20">
+                <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Makers</h3>
+            </div>
+            <p class="text-slate-400 text-sm mb-6">아이디어를 현실로 만드는 하드웨어 및 3D 모델링 설계 교육</p>
+            
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>레이저 각인 및 조각</strong>기 장비 운용 및 제작</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>3D 모델링 & 3D 프린팅</strong> (OnShape, Fusion360)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>CNC 가공</strong> 및 하드웨어 제작 설계</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>아두이노(Arduino)</strong> 기반 발명 프로젝트 및 피지컬 코딩</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>LEGO Spike</strong> 활용 교구 코딩 (블록코딩 및 Python)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>AI 로봇코딩</strong> (라즈베리파이 기반 임베디드 활용)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>드론 3D설계</strong> 및 기초 조종 프로그램</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>브릭(LEGO) + 창의과학</strong> 융합 프로그램</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>AI 디자인 활용 승화전사</strong> 소품 굿즈 제작</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Digital & AI Tools Card -->
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 shadow-lg hover:border-brand-500/30 transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="h-12 w-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center shadow-lg shadow-brand-600/20">
+                <i class="fa-solid fa-laptop-code text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Digital & AI Tools</h3>
+            </div>
+            <p class="text-slate-400 text-sm mb-6">업무 혁신과 코딩 없이 앱을 만드는 생산성 제고 교육</p>
+            
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>Google Workspace</strong> (Drive, Sheets, Slides, Site, Classroom 등)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>Google Apps Script</strong> 연동 및 각종 API 개발 자동화</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>Google AppSheet</strong> 활용 노코드(No-Code) 맞춤형 앱 개발</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>AI + Design Tools</strong> (Canva, Adobe Illustrator, Inkscape)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>바이브코딩 (Vibe Coding)</strong> (Google Antigravity, Apps Script 연계)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                <span class="text-slate-300"><strong>머신러닝 & 딥러닝</strong> 기반의 데이터 학습 추론 및 분석</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education & Certifications -->
+  <section id="experience" class="py-20 bg-darkbg-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- Left: Work Experience -->
+        <div class="lg:col-span-1 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">경력</h3>
+          </div>
+          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+            <!-- Item 1 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-brand-400 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-brand-400 block">2021 - 현재</span>
+              <h4 class="font-bold text-slate-100">개인사업 운영 중</h4>
+              <p class="text-sm text-slate-400 mt-1">제품 디자인, 개발, 제작, 강의 등 개인사업 수행 중</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-slate-500 block">2018 - 2020</span>
+              <h4 class="font-bold text-slate-100">발전 모듈 및 설비 개발 연구원</h4>
+              <p class="text-sm text-slate-400 mt-1">에너지 모듈 회로 설계 및 연구 과제 수행</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-slate-500 block">2010 - 2018</span>
+              <h4 class="font-bold text-slate-100">계측제어, 전기 & SW Engineer</h4>
+              <p class="text-sm text-slate-400 mt-1">항공, 방산, 자동차 분야의 계측제어, 전기 및 SW 엔지니어링 수행</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle: Education -->
+        <div class="lg:col-span-1 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">전공 학력</h3>
+          </div>
+          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+            <!-- Ed 1 (New Master's Program) -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-brand-400 ring-4 ring-darkbg-950 animate-pulse"></div>
+              <span class="text-xs font-semibold text-brand-400 block">2026 - 현재</span>
+              <h4 class="font-bold text-slate-100">컴퓨터교육 전공 (석사 과정 중)</h4>
+              <p class="text-sm text-slate-400 mt-1">인공지능 교육, 소프트웨어 교수법 및 최신 에듀테크 연구</p>
+            </div>
+            <!-- Ed 2 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-slate-500 block">2022 - 2024</span>
+              <h4 class="font-bold text-slate-100">멀티미디어디자인 전공</h4>
+              <p class="text-sm text-slate-400 mt-1">UI/UX 디자인 및 콘텐츠 시각화 설계 역량</p>
+            </div>
+            <!-- Ed 3 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-slate-500 block">2018 - 2020</span>
+              <h4 class="font-bold text-slate-100">전기공학 전공</h4>
+              <p class="text-sm text-slate-400 mt-1">계측제어, 시퀀스 회로 및 전력공학 지식 축적</p>
+            </div>
+            <!-- Ed 4 -->
+            <div class="relative pl-8">
+              <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-darkbg-950"></div>
+              <span class="text-xs font-semibold text-slate-500 block">2008 - 2010</span>
+              <h4 class="font-bold text-slate-100">로봇시스템 전공</h4>
+              <p class="text-sm text-slate-400 mt-1">자동화 로봇, 제어 알고리즘 및 마이크로프로세서 프로그래밍</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Certifications -->
+        <div class="lg:col-span-1 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">자격 사항</h3>
+          </div>
+          <div class="space-y-3">
+            <!-- Cert Card 1 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">Google Certified Educator Level 2</h4>
+                <p class="text-xs text-slate-500">Google / 2024</p>
+              </div>
+            </div>
+            <!-- Cert Card 2 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">AICE ASSOCIATE</h4>
+                <p class="text-xs text-slate-500">KT, 한국경제신문 / 2024</p>
+              </div>
+            </div>
+            <!-- Cert Card 3 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">목공지도사 1급</h4>
+                <p class="text-xs text-slate-500">한국목공교육협회 / 2023</p>
+              </div>
+            </div>
+            <!-- Cert Card 4 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">자동화설비산업기사</h4>
+                <p class="text-xs text-slate-500">한국산업인력공단 / 2009</p>
+              </div>
+            </div>
+            <!-- Cert Card 5 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">전기산업기사</h4>
+                <p class="text-xs text-slate-500">한국산업인력공단 / 2009</p>
+              </div>
+            </div>
+            <!-- Cert Card 6 -->
+            <div class="p-3 bg-slate-900/30 border border-slate-800/40 border-dashed rounded-xl flex items-start gap-3 opacity-50">
+              <i class="fa-solid fa-circle-minus text-slate-600 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-300 text-sm">Certified LabVIEW Developer <span class="text-xs text-rose-400 font-normal">(만료)</span></h4>
+                <p class="text-xs text-slate-500">National Instruments / 2022 (Exp.)</p>
+              </div>
+            </div>
+            <!-- Cert Card 7 -->
+            <div class="p-3 bg-slate-900/30 border border-slate-800/40 border-dashed rounded-xl flex items-start gap-3 opacity-50">
+              <i class="fa-solid fa-circle-minus text-slate-600 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-300 text-sm">품질관리담당자 <span class="text-xs text-rose-400 font-normal">(만료)</span></h4>
+                <p class="text-xs text-slate-500">한국표준협회 / 2022 (Exp.)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Lecture Experience -->
+  <section id="lectures" class="py-20 bg-darkbg-900/30 border-y border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white">상세 강의 이력</h2>
+        </div>
+        <div class="mt-4 md:mt-0 flex gap-2">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+            주요 연수 대상: 교사 & 공무원 & 중,고등학생, 첨단과학영재
+          </span>
+        </div>
+      </div>
+
+      <!-- Live Search / Filter Concept for User Experience -->
+      <div class="mb-6 space-y-3">
+        <input type="text" id="lecture-search" placeholder="검색하고 싶은 강의 키워드를 입력해 보세요 (예: AppSheet, 레이저, 아두이노...)" class="w-full px-5 py-3 bg-slate-900/80 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-white placeholder-slate-500 shadow-md transition">
+        
+        <!-- Category Filter Tags -->
+        <div class="flex flex-wrap gap-2 pt-1" id="category-filters">
+          <button class="category-btn active px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-500 text-white border border-brand-500 transition" data-filter="all">전체보기</button>
+          <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-brand-500/30 transition" data-filter="연수">연수 & 특강</button>
+          <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-brand-500/30 transition" data-filter="코딩">피지컬 코딩</button>
+          <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-brand-500/30 transition" data-filter="AppSheet">AppSheet & 노코드</button>
+          <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-brand-500/30 transition" data-filter="AI">AI & 로봇</button>
+          <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-brand-500/30 transition" data-filter="메이커">장비 & 메이커</button>
+        </div>
+      </div>
+
+      <!-- Grid for Lectures -->
+      <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="공무원 정보화교육연수 생성형AI 승화전사 교사 스마트 워크 Google 클래스룸 노코드 Appsheet 클래스 매니저 레이저조각기 학교 메이커 장비 활용법 제주융합과학연구원 연수 메이커">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">연수 & 특강</span>
+              <span class="text-sm text-slate-500">2024. 07 ~ 현재</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">공무원 정보화 및 메이커 장비 활용 연수</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주융합과학연구원</p>
+            <ul class="text-xs text-slate-400 space-y-1.5 list-disc pl-4 leading-relaxed">
+              <li>생성형 AI를 활용한 디자인 제작 및 승화전사</li>
+              <li>교사를 위한 스마트 워크 - Google 클래스룸과 생성형 AI</li>
+              <li>노코드 기반(AppSheet) 클래스 매니저 앱 만들기 실습</li>
+              <li>레이저 조각기를 활용한 학교 메이커 장비 실무 교육</li>
+              <li>레이저조각기, 3D 프린팅, 아두이노 프로그램 - 중,고등학생, 첨단과학영재</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="바이브코딩 해커톤 중등부 Google Apps Script Gemini 대구소프트웨어마이스터고등학교 아이코어이앤씨 코딩 AI">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">해커톤 메인강사</span>
+              <span class="text-sm text-slate-500">2026. 07</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">바이브코딩 해커톤 (중등부)</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">대구소프트웨어마이스터고등학교 / 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              &lt;Google Apps Script와 Gemini를 활용한 바이브코딩&gt; 과정을 강의하여 실시간으로 생성형 AI API와 Apps Script 연동을 통한 창의 서비스 빌딩 과정을 교육했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="찾아가는 Physical coding 알버트 LEGO Spike 데이터 활용 바이브 코딩 세화중 추자중 우도중 카카오 제주대학교 코딩">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">피지컬 코딩</span>
+              <span class="text-sm text-slate-500">2025. 12</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">찾아가는 Physical coding 캠프</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">세화중·추자중·우도중 / 카카오, 제주대학교</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              카카오와 제주대학교가 함께 주최하는 과정으로 알버트 로봇, LEGO Spike 및 다양한 물리 교구 데이터를 수집하고 이를 활용한 바이브 코딩 교육을 진행했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="SW AI캠프 AppSheet 나만의 맛집리스트 천안여자상업고등학교 아이코어이앤씨 AppSheet AI">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">노코드 앱개발</span>
+              <span class="text-sm text-slate-500">2025. 11</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">SW, AI 캠프 - AppSheet 앱 개발</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">천안여자상업고등학교 / 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              상업 계열 학생들을 대상으로 구글 노코드 앱시트(AppSheet)를 활용하여 실전에서 바로 배포하고 적용할 수 있는 &apos;나만의 맛집 리스트 앱&apos; 설계 과정을 주도했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="제주AI로봇 창의인재 양성과정 라즈베리파이 LEGO Spike 머신러닝 비전 센싱 AI 프로젝트 서귀포 제주 제주테크노파크 아이코어이앤씨 AI 코딩">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">AI 비전 센싱</span>
+              <span class="text-sm text-slate-500">2025. 11</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">제주 AI 로봇 창의인재 양성과정</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주테크노파크 / 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              라즈베리파이 싱글보드 컴퓨터와 LEGO Spike 하드웨어를 유기적으로 통신하고, 카메라를 활용해 머신러닝 기반 비전 센싱 기술을 구현하는 AI 프로젝트를 지도했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="사제동행 특강 AppSheet 나만의 스터디매니저 앱 경남교육청 아이코어이앤씨 AppSheet">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">사제동행 특강</span>
+              <span class="text-sm text-slate-500">2025. 09</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">AppSheet로 나만의 스터디매니저 앱 만들기</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">경남교육청 / 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              선생님과 학생들이 한 팀이 되어 일상의 학습 습관을 개선할 수 있는 나만의 모바일 맞춤형 앱 개발 프로젝트를 진행했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="Appsheet 나만의 앱 스케줄러 독서관리 맛집리스트 3D모델링 3D프린터 제주평생교육장학진흥원 AppSheet 메이커">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">평생 교육</span>
+              <span class="text-sm text-slate-500">2025. 03 ~ 현재</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">AppSheet 활용 실전 앱 및 3D 모델링 교육</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주평생교육장학진흥원</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              시민 대상 맞춤 스케줄러, 독서 관리, 개인 맛집 기록 관리 등 일상에 적용 가능한 모바일 어플리케이션 개발과 함께 OnShape와 Fusion360을 연계한 3D 프린터 교육을 진행합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="창작동아리 AppSheet 교원 연수 Google Site 스터디 페이지 학급관리 앱 제주여자상업고등학교 아이코어이앤씨 AppSheet 연수">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">교원 & 학생 융합</span>
+              <span class="text-sm text-slate-500">2024. 11</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">창작동아리 및 교원 디지털 도구 연수</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주여자상업고등학교 / 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              학생들에게는 앱시트를 통한 스케줄러 개발 지도를, 선생님에게는 Google Site를 활용한 온라인 스터디 포털 설계 및 학급 관리 앱 연동 연수를 지원했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="브릭 오토마타 과학실험 드론캠프 드론 3D모델링 드론조종 3D펜 레이저조각기 가족 체험강의 3D모델링 및 프린팅 제주과학문화협회 메이커">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">융합 메이커스</span>
+              <span class="text-sm text-slate-500">2024. 07 ~ 2025. 07</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">가족 참여형 메이커스 & 드론 융합 캠프</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주과학문화협회</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              브릭, 오토마타, 가족체험 레이저조각 및 3D 프린팅 기초부터 심화까지 다양한 층위의 메이커스 수업과 더불어 드론을 3D로 직접 모델링하고 조종하는 드론캠프 메인 설계 및 강사를 담당했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="아두이노 회로 코딩 실습 표선고등학교 팹랩 제주 코딩 메이커">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">고등 실무 교육</span>
+              <span class="text-sm text-slate-500">2021. 12</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">아두이노 회로와 프로그래밍 실습</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">표선고등학교 / 팹랩 제주</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              브레드보드 회로 배선과 아두이노 스케치 IDE 상의 C++ 코드 작성 실습을 접목하여 입문자 수준에 적합한 탄탄한 메이커 피지컬 코딩 기초를 지원했습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="디지털 교육 노션 One Note 스마트폰 활용 AI 엑셀 기초 중급 한글 Canva 승화전사 아두이노 블루투스 스피커 만들기 LEGO Spike 제주융합과학연구원 연수 코딩">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">디지털 에센셜</span>
+              <span class="text-sm text-slate-500">2023. 12 ~ 현재</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">토탈 디지털 생산성 & 메이커 프로그램</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주융합과학연구원</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              노션, One Note를 통한 아카이빙 비법부터 엑셀(초/중급), 한글, 캔바 디자인 툴 활용, 승화전사 실습, 그리고 아두이노를 통한 블루투스 스피커 하드웨어 자작 캠프까지 융합형 교육을 제공합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="디지털 문해력 기술지원 아라초등학교 코딩">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">초등 디지털 교육</span>
+              <span class="text-sm text-slate-500">2025. 04</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">초등 디지털 문해력 교육 및 기술 지원</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">아라초등학교</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              초등학생들이 기초 인터넷 윤리와 유용한 소통 앱 사용법을 올바르게 이해하고 실습할 수 있도록 교과 연계 디지털 문해력 수업을 설계하고 교육 환경을 세팅했습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Course Analyzer Section -->
+  <section id="ai-analyzer" class="py-20 bg-darkbg-950 border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold mb-3">
+          <i class="fa-solid fa-robot animate-bounce"></i> Smart Matching System
+        </div>
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">AI 강좌 제안 및 가능 여부 진단</h2>
+        <p class="mt-3 text-slate-400 text-sm">의뢰하고자 하는 강의 대상과 주제를 입력하시면, 강사 포트폴리오 기반의 적합도(매칭률)와 기관에 적합하게 다듬어진 매력적인 개설 강좌명, 추천 차시를 제안해 드립니다.</p>
+      </div>
+
+      <!-- Analyzer Box -->
+      <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Input Form -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-400 mb-2">1. 교육 대상</label>
+              <select id="course-target" class="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-white text-sm">
+                <option value="초등생">초등학생 (기초 및 교구 체험형)</option>
+                <option value="중고등생">중·고등학생 / 첨단과학영재</option>
+                <option value="교사 및 공무원">교사 & 공무원 (스마트워크 / 직무 연수)</option>
+                <option value="일반 성인">일반 성인 (평생 교육 / 은퇴 예정자)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 mb-2">2. 희망 시수 (시간)</label>
+              <input type="number" id="course-hours" min="1" max="100" value="8" class="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-white text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 mb-2">3. 원하는 강좌명 또는 기술 키워드</label>
+              <input type="text" id="course-name" placeholder="예: 앱시트를 활용한 업무용 앱 만들기, 아두이노 스피커 제작" class="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-white text-sm placeholder-slate-600">
+            </div>
+            <button id="analyze-btn" class="w-full py-3.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-bold shadow-lg shadow-brand-500/10 transition flex items-center justify-center gap-2 text-sm">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> AI 강좌 적합도 분석하기
+            </button>
+          </div>
+
+          <!-- Result Dashboard -->
+          <div class="border-t md:border-t-0 md:border-l border-slate-800/80 pt-6 md:pt-0 md:pl-8 flex flex-col justify-center">
+            <div id="placeholder-result" class="text-center py-12 text-slate-500 space-y-3">
+              <i class="fa-solid fa-chart-line text-4xl text-slate-700"></i>
+              <p class="text-sm leading-relaxed">제안서 정보 입력 후 분석 버튼을 누르시면<br>포트폴리오 기반 지능형 매칭 보고서가 생성됩니다.</p>
+            </div>
+
+            <!-- Loader -->
+            <div id="analyzer-loader" class="hidden text-center py-12 space-y-4">
+              <i class="fa-solid fa-circle-notch text-4xl text-brand-400 animate-spin"></i>
+              <p class="text-sm text-slate-400">포트폴리오 핵심 이력 및 강의 키워드를 정밀 매칭 분석 중입니다...</p>
+            </div>
+
+            <div id="analysis-result" class="hidden space-y-5">
+              <!-- Score Meter -->
+              <div>
+                <div class="flex justify-between items-end mb-1.5">
+                  <span class="text-xs font-bold text-slate-400">강좌 매칭 적합도</span>
+                  <span id="result-score" class="text-2xl font-black text-brand-400">95%</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-950 rounded-full overflow-hidden">
+                  <div id="result-progress" class="h-full bg-brand-500 transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <hr class="border-slate-800/60">
+
+              <!-- Recommended Details -->
+              <div class="space-y-4 text-sm">
+                <div>
+                  <span class="block text-xs font-bold text-slate-500">기관 맞춤형 추천 개설 강좌명</span>
+                  <p id="result-title" class="font-bold text-white mt-1 text-base leading-snug">실전! AI와 아두이노로 배우는 창의 코딩 교실</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <span class="block text-xs font-bold text-slate-500">요청 시수</span>
+                    <p id="requested-hours" class="font-medium text-slate-300 mt-1">8시간</p>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-bold text-slate-500">AI 권장 제안 시수</span>
+                    <p id="recommended-hours" class="font-bold text-brand-400 mt-1">12시간</p>
+                  </div>
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-slate-500">강사 맞춤 조언 및 제안 의견</span>
+                  <p id="result-feedback" class="text-xs text-slate-400 leading-relaxed mt-1">포트폴리오에 부합하는 최고의 강의 영역입니다. 실무에 사용되는 지식 맥락을 확실히 짚어드릴 수 있도록 이론과 실습의 밸런스를 조율하여 설계됩니다.</p>
+                </div>
+              </div>
+              
+              <!-- Source Badge (AI vs Smart Fallback) -->
+              <div class="flex justify-end pt-2">
+                <span id="matching-source-badge" class="text-[10px] bg-slate-950 px-2 py-0.5 rounded text-slate-600">Smart Engine v1.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards / Training Section -->
+  <section id="awards" class="py-20 bg-darkbg-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-white">수상, 심사 및 멘토링 이력</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Awards and Judging -->
+        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
+              <i class="fa-solid fa-gavel text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">심사 및 멘토링 경력</h3>
+          </div>
+          
+          <div class="space-y-6">
+            <!-- Award 1 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">심사위원 / 2026. 07</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">바이브코딩 해커톤 (중·고등부) 심사</h4>
+              <p class="text-xs text-slate-500 mt-1">대구소프트웨어마이스터고등학교, 아이코어이앤씨</p>
+            </div>
+            <!-- Award 2 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">심사위원 / 2025. 12</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">2025 제주 AI 유스 페스티벌 AI 로봇 창의 경진대회</h4>
+              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
+            </div>
+            <!-- Award 3 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">멘토링 / 2024. 12</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">제주 Google AI 아이디어 해커톤 멘토링</h4>
+              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
+              <p class="text-xs text-slate-400 mt-1 italic leading-relaxed">
+                멘토링 대상 프로젝트: <strong>&apos;Growmate&apos;</strong> (AppSheet 활용 성장기록관리 앱 - 최우수 AI 기술상 수상)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Trainings -->
+        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
+              <i class="fa-solid fa-book-open text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">전문 연수 및 외부 활동</h3>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 01</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">[2026 퓨처비 페스타] 교육자 라운드 테이블</h4>
+                <p class="text-xs text-slate-500">스마일게이트 퓨처랩</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2025. 07 ~ 08</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">AI 강의 역량 레벨업 과정 수료</h4>
+                <p class="text-xs text-slate-500">제주ICT | 프로젝트: 커북Oi (AppSheet + Sheets + Apps Script + API 활용 독서기록 앱 우수 1위)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">AICE BASIC & ASSOCIATE 자격 취득과정</h4>
+                <p class="text-xs text-slate-500">제주RIS</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 02</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">Google AI 강사양성 과정 수료</h4>
+                <p class="text-xs text-slate-500">Google, 제주평생교육장학진흥원, 아이코어이앤씨</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 09 ~ 11</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">메이커스 창작 동아리 활동</h4>
+                <p class="text-xs text-slate-500">제주콘텐츠코리아랩 (레이저조각기 및 CNC 교육)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">강사양성 교육 수료</h4>
+                <p class="text-xs text-slate-500">제주평생교육장학진흥원 (일러스트, 레이저조각기, CNC조각기 강사양성 & UV프린터, 커팅플로터 굿즈 제작)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 10 ~ 11</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">소셜메이커스 3기 수료</h4>
+                <p class="text-xs text-slate-500">팹랩서울+제주 (3D프린터, 레이저조각기, 아두이노 / 스마트화분 제작)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">제주 AI활용 SW 인력양성 프로젝트 수료</h4>
+                <p class="text-xs text-slate-500">제주평생교육장학진흥원, SKT (알버트 활용 블록코딩 및 플랫폼 서비스 개발)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wood Work Gallery Section -->
+  <section id="woodwork" class="py-20 bg-darkbg-900/30 border-y border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">🪑 Wood Work (목공 설계 및 제작)</h2>
+        <p class="mt-4 text-lg text-slate-400">직접 도면 설계부터 제작, 시제품 개발, 가구 제작 및 납품까지 진행한 목공 아카이브입니다.</p>
+      </div>
+
+      <!-- Woodwork List -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Project 1 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-sheet-plastic"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Bass Wood Signboard</span>
+          <h4 class="font-bold text-white mt-2.5">베이스우드 간판 제작</h4>
+          <p class="text-xs text-slate-500 mt-1">2025. 09 | 설계 및 자체 제작 / 개인 소장</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Knee Cajon DIY Kit</span>
+          <h4 class="font-bold text-white mt-2.5">니 카혼 DIY 키트</h4>
+          <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 / 관공서·기관 대량 납품</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-drum"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Maracas DIY Kit</span>
+          <h4 class="font-bold text-white mt-2.5">마라카스 악기 DIY 키트</h4>
+          <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 / 납품</p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Emotional Wood Block</span>
+          <h4 class="font-bold text-white mt-2.5">감성 우드 블록 세트</h4>
+          <p class="text-xs text-slate-500 mt-1">2024. 02 | 3D 모델링 설계 및 정밀 가공 시제품 제작</p>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-table"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Unbalance Tea Table</span>
+          <h4 class="font-bold text-white mt-2.5">언밸런스 업사이클링 티 테이블</h4>
+          <p class="text-xs text-slate-500 mt-1">2023. 11 | 버려지는 가구재 업사이클링 설계 및 납품</p>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
+          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Walnut Side Signboard</span>
+          <h4 class="font-bold text-white mt-2.5">월넛(호두나무) 돌출형 간판</h4>
+          <p class="text-xs text-slate-500 mt-1">2023. 09 | 고급 특수목 정밀 각인 설계 및 납품</p>
+        </div>
+      </div>
+
+      <!-- Compact Timeline of past designs -->
+      <div class="mt-12 bg-slate-900/40 rounded-2xl p-6 sm:p-8 border border-slate-800/80">
+        <h4 class="font-bold text-white mb-6 flex items-center gap-2">
+          <i class="fa-solid fa-folder-open text-brand-400"></i>
+          기타 설계 및 제작 연혁 (2021 ~ 2023)
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-slate-400">
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-brand-400">2023.03</span>
+            <span>발 받침대(Footrest) 자체 설계 및 소장</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-brand-400">2023.03</span>
+            <span>오픈형 책장 및 상판 설계 / 공공장소 기증</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-brand-400">2023.02</span>
+            <span>회전형 단행본 & 잡지 보관함 제작</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-slate-500">2022.12</span>
+            <span>1인 가구용 슬림 데스크 (Slim Desk)</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-slate-500">2022.10</span>
+            <span>오션드럼 (Ocean Drum) 시제품 타악기 설계</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
+            <span class="font-semibold text-slate-500">2022.10</span>
+            <span>레인스틱 (Rain Stick) 구조 도면 설계</span>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40 col-span-1 md:col-span-2 lg:col-span-1">
+            <span class="font-semibold text-slate-500">2021.10</span>
+            <span>피아노 칼림바 (Kalimba) 하우징 설계</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Bottom Call-To-Action -->
+  <section class="bg-darkbg-950 text-white py-16 relative overflow-hidden border-t border-slate-900">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.15),transparent_60%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6">
+      <h3 class="text-3xl font-extrabold sm:text-4xl text-white">메이커 & 디지털의 확실한 성장 파트너</h3>
+      <p class="text-slate-400 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+        쉽고 명확하게 이해하는 수업, 실전에서 작동하는 툴을 설계합니다. 교육 연수, 프로젝트 컨설팅, 목공 및 가공 제품 제작 문의 등 언제든지 환영합니다.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+        <a href="tel:010-4127-6544" class="px-6 py-3.5 bg-white text-darkbg-950 rounded-xl font-bold shadow-lg hover:bg-slate-100 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-phone"></i>
+          전화 상담 문의하기
+        </a>
+        <a href="mailto:plipper325@naver.com" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-500 border border-brand-500/50 text-white rounded-xl font-bold shadow-lg transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-envelope"></i>
+          이메일로 제안서 보내기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-darkbg-950 text-slate-600 py-12 border-t border-slate-900 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div>
+          <span class="text-white font-bold text-base tracking-wider block mb-1">LEE KANGMIN PORTFOLIO</span>
+          <p class="text-slate-500">메이커스 & 디지털 도구 교육 전문 강사 및 엔지니어</p>
+        </div>
+        <div class="text-center sm:text-right space-y-1">
+          <p>연락처: <a href="tel:010-4127-6544" class="hover:text-white transition text-slate-400">010-4127-6544</a> | 이메일: <a href="mailto:plipper325@naver.com" class="hover:text-white transition text-slate-400">plipper325@naver.com</a></p>
+          <p>&copy; 2026 Lee Kangmin. All rights reserved. Designed with Grounded Growth.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 left-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+  <!-- Back to Top Floating Button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/20 translate-y-20 opacity-0 transition-all duration-300 focus:outline-none" aria-label="맨 위로 이동">
+    <i class="fa-solid fa-arrow-up text-lg"></i>
+  </button>
+
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 2. Navigation Highlighting on Scroll (Intersection Observer)
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('text-brand-400', 'border-b-2', 'border-brand-400');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('text-brand-400');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // 3. Advanced Live Search & Category Filtering
+    const searchInput = document.getElementById('lecture-search');
+    const lectureCards = document.querySelectorAll('.lecture-card');
+    const filterButtons = document.querySelectorAll('.category-btn');
+    let currentCategory = 'all';
+
+    function filterLectures() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+
+      lectureCards.forEach(card => {
+        const keywords = card.getAttribute('data-keywords').toLowerCase();
+        const textContent = card.innerText.toLowerCase();
+
+        const matchesSearch = keywords.includes(searchTerm) || textContent.includes(searchTerm);
+        const matchesCategory = currentCategory === 'all' || keywords.includes(currentCategory.toLowerCase());
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterLectures);
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-brand-500', 'text-white', 'border-brand-500');
+          b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        });
+
+        btn.classList.add('active', 'bg-brand-500', 'text-white', 'border-brand-500');
+        btn.classList.remove('
