@@ -680,10 +680,6 @@
   <!-- Awards / Training Section -->
   <section id="awards" class="py-20 bg-darkbg-950">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-bold text-white">수상, 심사 및 멘토링 이력</h2>
-      </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Awards and Judging -->
         <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
@@ -799,7 +795,7 @@
     </div>
   </section>
 
-  <!-- AI Course Analyzer Section (Placed before wood work as primary teaching service close-hook) -->
+  <!-- AI Course Analyzer Section -->
   <section id="ai-analyzer" class="py-20 bg-darkbg-900/50 border-t border-slate-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -886,7 +882,7 @@
                 </div>
               </div>
               
-              <!-- Source Badge (AI vs Smart Fallback) -->
+              <!-- Source Badge -->
               <div class="flex justify-end pt-2">
                 <span id="matching-source-badge" class="text-[10px] bg-slate-950 px-2 py-0.5 rounded text-slate-600">Smart Engine v1.0</span>
               </div>
@@ -902,16 +898,24 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">🪑 Wood Work (목공 설계 및 제작)</h2>
-        <p class="mt-4 text-lg text-slate-400">직접 도면 설계부터 제작, 시제품 개발, 가구 제작 및 납품까지 진행한 목공 아카이브입니다.</p>
+        <p class="mt-4 text-lg text-slate-400">직접 도면 설계부터 제작, 시제품 개발, 가구 제작 및 납품까지 진행한 목공 아카이브입니다. (클릭 시 확대 보기 가능)</p>
       </div>
 
-      <!-- Woodwork List (3x3 Grid of 9 Premium Projects) -->
+      <!-- Woodwork List (3x3 Grid of 13 Premium Projects, supported with object-contain & blurred backgrounds) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Project 1 (Photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-signboard.jpg" alt="베이스우드 간판 제작" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><path d=\'M90 60 L230 60 L230 120 L90 120 Z\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><text x=\'160\' y=\'96\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Bass Wood Signboard</text></svg>';">
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="베이스우드 간판 제작"
+             data-subtitle="2025. 09 | 설계 및 자체 제작 / 개인 소장"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-signboard.jpg"
+             data-description="온쉐이프(OnShape)를 사용하여 간판의 세밀한 목재 가공 여백과 로고 각인 위치를 3D 공간 시뮬레이션한 후 자체 보유한 정밀 레이저 장비로 섬세하게 가공을 진행했습니다. 특수 천연 왁스 마감 처리를 통해 가벼우면서도 자연스러운 나무결이 영구 보존되도록 개발했습니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <!-- Blurred background copy -->
+            <img src="image/woodwork/woodwork-signboard.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <!-- Sharp foreground image -->
+            <img src="image/woodwork/woodwork-signboard.jpg" alt="베이스우드 간판 제작" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><path d=\'M90 60 L230 60 L230 120 L90 120 Z\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><text x=\'160\' y=\'96\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Bass Wood Signboard</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Bass Wood Signboard</span>
           <h4 class="font-bold text-white mt-2.5">베이스우드 간판 제작</h4>
@@ -919,39 +923,63 @@
         </div>
 
         <!-- Project 2 (Photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-cajon.jpg" alt="니 카혼 DIY 키트" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'110\' y=\'40\' width=\'100\' height=\'100\' rx=\'6\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><circle cx=\'160\' cy=\'90\' r=\'15\' fill=\'%23111827\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Knee Cajon DIY Kit</text></svg>';">
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="니 카혼 DIY 키트"
+             data-subtitle="2025. 06 | 자체 설계 및 제작 / 관공서·기관 대량 납품"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-cajon.jpg"
+             data-description="카혼 타악기의 구조적 울림통 원리를 공학적으로 분석하여 누구나 쉽게 조립할 수 있는 스냅핏 조인트 구조로 설계했습니다. 학교 현장 및 기관 대량 납품에 성공하며 타격 지점과 목재 조인트의 기밀성을 정밀하게 조정한 우수한 조립 키트 모델입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-cajon.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-cajon.jpg" alt="니 카혼 DIY 키트" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'110\' y=\'40\' width=\'100\' height=\'100\' rx=\'6\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><circle cx=\'160\' cy=\'90\' r=\'15\' fill=\'%23111827\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Knee Cajon DIY Kit</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Knee Cajon DIY Kit</span>
           <h4 class="font-bold text-white mt-2.5">니 카혼 DIY 키트</h4>
           <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 / 관공서·기관 대량 납품</p>
         </div>
 
-        <!-- Project 3 (Photo) - PROMOTED -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-bookshelf.jpg" alt="회전형 책장 및 보관함" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'130\' y=\'30\' width=\'60\' height=\'110\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'130\' y1=\'65\' x2=\'190\' y2=\'65\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><line x1=\'130\' y1=\'100\' x2=\'190\' y2=\'100\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Rotating Bookshelf</text></svg>';">
+        <!-- Project 3 (Photo) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="회전형 단행본 & 잡지 보관함 책장"
+             data-subtitle="2023. 02 | 회전 구동 메커니즘 3D 공간 설계 및 제작"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-bookshelf.jpg"
+             data-description="내부 무게 균형과 저마찰 볼베어링 기반의 회전 구조를 OnShape로 3D 시뮬레이션 설계한 프리미엄 기능성 가구입니다. 책과 미디어를 다량 수납하여 하중이 가해져도 소음 없이 부드러운 유체 정역학적 하중 분산 관절 회전이 지원되도록 조인트 가공 정밀도를 극대화했습니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-bookshelf.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-bookshelf.jpg" alt="회전형 책장 및 보관함" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'130\' y=\'30\' width=\'60\' height=\'110\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'130\' y1=\'65\' x2=\'190\' y2=\'65\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><line x1=\'130\' y1=\'100\' x2=\'190\' y2=\'100\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Rotating Bookshelf</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Rotating Bookshelf</span>
           <h4 class="font-bold text-white mt-2.5">회전형 단행본 & 잡지 보관함 책장</h4>
           <p class="text-xs text-slate-500 mt-1">2023. 02 | 회전 구동 메커니즘 3D 공간 설계 및 제작</p>
         </div>
 
-        <!-- Project 4 (Photo) - PROMOTED -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-desk.jpg" alt="슬림 데스크" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'80\' y=\'60\' width=\'160\' height=\'12\' rx=\'2\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'72\' x2=\'90\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'220\' y1=\'72\' x2=\'230\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Slim Desk</text></svg>';">
+        <!-- Project 4 (Photo) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="1인 가구용 슬림 데스크 (Slim Desk)"
+             data-subtitle="2022. 12 | 하중 분산 하드웨어 조인트 및 가구 설계"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-desk.jpg"
+             data-description="미니멀한 주거 공간에 최적화된 하중 설계 공학이 가미된 슬림 테이블입니다. 다리와 상판이 체결되는 전단 하중점을 퓨전360으로 시뮬레이션하여 얇지만 흔들림 없이 수평 응력을 견디도록 설계된 실용 중심의 시제품 가구입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-desk.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-desk.jpg" alt="슬림 데스크" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'80\' y=\'60\' width=\'160\' height=\'12\' rx=\'2\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'72\' x2=\'90\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'220\' y1=\'72\' x2=\'230\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Slim Desk</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Slim Desk</span>
           <h4 class="font-bold text-white mt-2.5">1인 가구용 슬림 데스크 (Slim Desk)</h4>
           <p class="text-xs text-slate-500 mt-1">2022. 12 | 하중 분산 하드웨어 조인트 및 가구 설계</p>
         </div>
 
-        <!-- Project 5 (Photo) - PROMOTED -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-footrest.jpg" alt="발 받침대" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><polygon points=\'100,105 220,75 230,95 110,125\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'110\' y1=\'115\' x2=\'110\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'215\' y1=\'90\' x2=\'215\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Ergonomic Footrest</text></svg>';">
+        <!-- Project 5 (Photo) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="인체공학 각도 조절형 발 받침대"
+             data-subtitle="2023. 03 | 피로 분산 경사면 인체공학 관절 설계 제작"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-footrest.jpg"
+             data-description="사무 환경에서 다리의 피로도를 분산시키는 다각도 전용 관절 받침대입니다. 각도 회전 축의 마찰 고정 힌지와 발바닥 미끄럼 방지 그루브를 3D CAD로 수치 제어 모델링하여 관공서에 시제품으로 납품한 기능성 하드웨어 제품입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-footrest.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-footrest.jpg" alt="발 받침대" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><polygon points=\'100,105 220,75 230,95 110,125\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'110\' y1=\'115\' x2=\'110\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'215\' y1=\'90\' x2=\'215\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Ergonomic Footrest</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Ergonomic Footrest</span>
           <h4 class="font-bold text-white mt-2.5">인체공학 각도 조절형 발 받침대</h4>
@@ -959,9 +987,15 @@
         </div>
 
         <!-- Project 6 (Photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-table.jpg" alt="언밸런스 업사이클링 티 테이블" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><ellipse cx=\'160\' cy=\'80\' rx=\'65\' ry=\'20\' fill=\'%2378350f\' stroke=\'%23d97706\' stroke-width=\'2\'/><line x1=\'120\' y1=\'95\' x2=\'100\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'200\' y1=\'95\' x2=\'220\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'160\' y1=\'100\' x2=\'160\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'165\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Unbalance Tea Table</text></svg>';">
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="언밸런스 업사이클링 티 테이블"
+             data-subtitle="2023. 11 | 버려지는 가구재 업사이클링 설계 및 납품"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-table.jpg"
+             data-description="버려지는 가구재 및 목재 자원을 업사이클링하여 기하학적인 불균형의 조형미를 살린 예술 티 테이블입니다. 비대칭 하중이 한쪽으로 치우쳐 전복되는 위험을 완벽하게 방지하도록 컴퓨터 시뮬레이션 기반 무게중심 균형 연산을 거쳐 탄생한 작품입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-table.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-table.jpg" alt="언밸런스 업사이클링 티 테이블" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><ellipse cx=\'160\' cy=\'80\' rx=\'65\' ry=\'20\' fill=\'%2378350f\' stroke=\'%23d97706\' stroke-width=\'2\'/><line x1=\'120\' y1=\'95\' x2=\'100\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'200\' y1=\'95\' x2=\'220\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'160\' y1=\'100\' x2=\'160\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'165\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Unbalance Tea Table</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Unbalance Tea Table</span>
           <h4 class="font-bold text-white mt-2.5">언밸런스 업사이클링 티 테이블</h4>
@@ -969,19 +1003,44 @@
         </div>
 
         <!-- Project 7 (Photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
-          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
-            <img src="woodwork-walnut.jpg" alt="월넛 돌출형 간판" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'120\' y=\'45\' width=\'80\' height=\'100\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'60\' x2=\'120\' y2=\'60\' stroke=\'%239ca3af\' stroke-width=\'3\'/><line x1=\'100\' y1=\'120\' x2=\'120\' y2=\'120\' stroke=\'%239ca3af\' stroke-width=\'3\'/><rect x=\'100\' y=\'45\' width=\'10\' height=\'100\' fill=\'%234b5563\'/><text x=\'160\' y=\'160\' font-family=\'sans-serif\' font-size=\'10\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Walnut Side Signboard</text></svg>';">
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="월넛(호두나무) 돌출형 간판"
+             data-subtitle="2023. 09 | 고급 특수목 정밀 각인 설계 및 납품"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-walnut.jpg"
+             data-description="고급 호두나무 특수목의 짙은 가공면을 레이저조각 정밀 파워 수치 조정을 통해 불필요한 그을음 없이 깊게 각인했습니다. 수려한 내습성과 목재 고유의 중후함을 극대화한 소상공인 브랜드 가치 맞춤 돌출 프레임 세트입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-walnut.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-walnut.jpg" alt="월넛 돌출형 간판" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'120\' y=\'45\' width=\'80\' height=\'100\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'60\' x2=\'120\' y2=\'60\' stroke=\'%239ca3af\' stroke-width=\'3\'/><line x1=\'100\' y1=\'120\' x2=\'120\' y2=\'120\' stroke=\'%239ca3af\' stroke-width=\'3\'/><rect x=\'100\' y=\'45\' width=\'10\' height=\'100\' fill=\'%234b5563\'/><text x=\'160\' y=\'160\' font-family=\'sans-serif\' font-size=\'10\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Walnut Side Signboard</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Walnut Side Signboard</span>
           <h4 class="font-bold text-white mt-2.5">월넛(호두나무) 돌출형 간판</h4>
           <p class="text-xs text-slate-500 mt-1">2023. 09 | 고급 특수목 정밀 각인 설계 및 납품</p>
         </div>
 
-        <!-- Project 8 (Blueprint-CAD style: No photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:shadow-lg transition duration-300">
+        <!-- Project 8 (Photo - Open Bookshelf promoted!) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="오픈형 책장 및 상판 설계 / 공공장소 기증"
+             data-subtitle="2023. 03 | 모서리 곡률 설계 및 안전 프레임 빌드"
+             data-type="photo"
+             data-img="image/woodwork/woodwork-open-bookshelf.jpg"
+             data-description="많은 인원이 이용하는 공공장소의 특수 환경을 배려하여 모서리가 둥글게 가공된 고강도 친환경 우드 책장입니다. 모서리 가공 곡률 R값 설계 및 결합용 홈 가공 설계를 OnShape를 통해 3D로 진행해 흔들림 없는 안전한 구조로 빌드 후 기증하였습니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80 relative flex items-center justify-center">
+            <img src="image/woodwork/woodwork-open-bookshelf.jpg" class="absolute inset-0 w-full h-full object-cover filter blur-md opacity-35 scale-110" onerror="this.style.display='none'">
+            <img src="image/woodwork/woodwork-open-bookshelf.jpg" alt="오픈형 책장 설계" class="relative z-10 max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'80\' y=\'40\' width=\'160\' height=\'100\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'80\' y1=\'73\' x2=\'240\' y2=\'73\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><line x1=\'80\' y1=\'106\' x2=\'240\' y2=\'106\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Open Bookshelf Design</text></svg>';">
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Open Bookshelf</span>
+          <h4 class="font-bold text-white mt-2.5">오픈형 책장 및 상판 설계 / 기증</h4>
+          <p class="text-xs text-slate-500 mt-1">2023. 03 | 모서리 곡률 설계 및 안전 프레임 빌드</p>
+        </div>
+
+        <!-- Project 9 (Blueprint - SVG style) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="마라카스 악기 DIY 키트"
+             data-subtitle="2025. 06 | 자체 설계 및 제작 도면 보유 / 교육기관 납품"
+             data-type="blueprint"
+             data-description="아이들이 손에 쥐었을 때 가장 안전한 그립감을 선사하도록 인체공학적 마이크로 치수를 적용한 타악기 설계 도면입니다. 내부 울림통의 진동 및 음향 방사 구조를 고려하여 온쉐이프에서 3D 쉘(Shell) 공정으로 기획한 교육기관 납품용 키트입니다.">
           <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
-            <!-- Customized Technical Drawing SVG demonstrating CAD Expertise -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
               <circle cx="100" cy="80" r="24" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3 1.5" fill="none"/>
               <circle cx="100" cy="80" r="21" stroke="#0ea5e9" stroke-width="1" fill="none"/>
@@ -1001,10 +1060,13 @@
           <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 도면 보유 / 납품</p>
         </div>
 
-        <!-- Project 9 (Blueprint-CAD style: No photo) -->
-        <div class="bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:shadow-lg transition duration-300">
+        <!-- Project 10 (Blueprint - SVG style) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="감성 우드 블록 세트"
+             data-subtitle="2024. 02 | 3D 모델링 설계 및 정밀 가공 시제품 제작"
+             data-type="blueprint"
+             data-description="나무 본연의 촉감과 기하학적 도형 감각을 조화롭게 키우는 유아 교육용 입체 블록 세트 도면입니다. Fusion 360의 파라메트릭 설계를 적용하여 삼각형, 원주형 등 다양한 규격의 조합 오차 범위를 0.05mm 내외로 정밀 설계한 시제품입니다.">
           <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
-            <!-- Customized Technical Drawing SVG demonstrating CAD Expertise -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
               <polygon points="70,120 105,60 140,120" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
               <rect x="160" y="70" width="45" height="45" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
@@ -1019,32 +1081,78 @@
           <p class="text-xs text-slate-500 mt-1">2024. 02 | 3D 모델링 설계 및 정밀 가공 시제품 제작</p>
         </div>
 
-      </div>
-
-      <!-- Compact Timeline of past designs -->
-      <div class="mt-12 bg-slate-900/40 rounded-2xl p-6 sm:p-8 border border-slate-800/80">
-        <h4 class="font-bold text-white mb-6 flex items-center gap-2">
-          <i class="fa-solid fa-folder-open text-brand-400"></i>
-          기타 설계 및 제작 연혁 (2021 ~ 2023)
-        </h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-slate-400">
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-brand-400">2023.03</span>
-            <span>오픈형 책장 및 상판 설계 / 공공장소 기증</span>
+        <!-- Project 11 (Blueprint - SVG style) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="오션드럼 (Ocean Drum) 시제품 타악기 설계"
+             data-subtitle="2022. 10 | 진동 및 사물 음향 시뮬레이션 기반 드럼 하우징"
+             data-type="blueprint"
+             data-description="투명한 전면부 아크릴 수지와 천연 원목 프레임을 기밀하게 고정하는 실링 조인트 설계 도면입니다. 내부에 충전된 금속 비드가 굴러가며 파도 소리를 모사하는 사운드 공학의 체적 연산을 거쳐 설계 완성된 악기 하드웨어입니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
+              <circle cx="160" cy="90" r="50" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 2" fill="none"/>
+              <circle cx="160" cy="90" r="45" stroke="#0ea5e9" stroke-width="1.5" fill="none"/>
+              <circle cx="160" cy="90" r="40" stroke="#1e293b" stroke-width="1" fill="none"/>
+              <circle cx="140" cy="110" r="2.5" fill="#38bdf8"/>
+              <circle cx="145" cy="115" r="2" fill="#38bdf8"/>
+              <circle cx="155" cy="118" r="2.5" fill="#38bdf8"/>
+              <circle cx="170" cy="115" r="2" fill="#38bdf8"/>
+              <circle cx="180" cy="105" r="3" fill="#38bdf8"/>
+              <line x1="110" y1="90" x2="210" y2="90" stroke="#f43f5e" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <text x="215" y="93" font-family="monospace" font-size="8" fill="#f43f5e">Ø 100</text>
+              <text x="160" y="24" font-family="monospace" font-size="8.5" fill="#64748b" text-anchor="middle">FUSION 360 / OCEAN DRUM SCHEMA</text>
+            </svg>
           </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-slate-500">2022.10</span>
-            <span>오션드럼 (Ocean Drum) 시제품 타악기 설계</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-slate-500">2022.10</span>
-            <span>레인스틱 (Rain Stick) 구조 도면 설계</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40 col-span-1 md:col-span-2 lg:col-span-1">
-            <span class="font-semibold text-slate-500">2021.10</span>
-            <span>피아노 칼림바 (Kalimba) 하우징 설계</span>
-          </div>
+          <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">3D CAD Blueprint Only</span>
+          <h4 class="font-bold text-white mt-2.5">오션드럼 (Ocean Drum) 설계</h4>
+          <p class="text-xs text-slate-500 mt-1">2022. 10 | 진동 및 사물 음향 시뮬레이션 기반 드럼 하우징</p>
         </div>
+
+        <!-- Project 12 (Blueprint - SVG style) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="레인스틱 (Rain Stick) 구조 도면 설계"
+             data-subtitle="2022. 10 | 나선형 격막 배치 및 마찰핀 3D 모델링 설계"
+             data-type="blueprint"
+             data-description="길쭉한 구조체 내부의 나선형 격막 배치와 마찰핀의 위치 설계를 가시화한 엔지니어링 청사진입니다. 내부 미디어가 수평 낙하하며 발생하는 물리적인 시간차 소음 제어 매커니즘을 3D 도면에 정교하게 매핑하여 개발했습니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
+              <rect x="60" y="75" width="200" height="30" rx="3" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+              <line x1="60" y1="90" x2="260" y2="90" stroke="#0ea5e9" stroke-width="0.8" stroke-dasharray="4 2"/>
+              <path d="M 80 75 L 90 105 M 100 75 L 110 105 M 120 75 L 130 105 M 140 75 L 150 105 M 160 75 L 170 105 M 180 75 L 190 105 M 200 75 L 210 105 M 220 75 L 230 105 M 240 75 L 250 105" stroke="#10b981" stroke-width="1"/>
+              <line x1="60" y1="115" x2="260" y2="115" stroke="#f43f5e" stroke-width="0.8"/>
+              <text x="160" y="127" font-family="monospace" font-size="8" fill="#f43f5e" text-anchor="middle">L 200</text>
+              <text x="160" y="24" font-family="monospace" font-size="8.5" fill="#64748b" text-anchor="middle">ONSHAPE / RAIN STICK STRUCTURE</text>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">3D CAD Blueprint Only</span>
+          <h4 class="font-bold text-white mt-2.5">레인스틱 (Rain Stick) 설계</h4>
+          <p class="text-xs text-slate-500 mt-1">2022. 10 | 나선형 격막 배치 및 마찰핀 3D 모델링 설계</p>
+        </div>
+
+        <!-- Project 13 (Blueprint - SVG style) -->
+        <div class="woodwork-card cursor-pointer bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:scale-[1.01] hover:shadow-lg transition duration-300"
+             data-title="피아노 칼림바 (Kalimba) 하우징 설계"
+             data-subtitle="2021. 10 | 음향 공명 및 플레이트 유격 제정 모델"
+             data-type="blueprint"
+             data-description="칼림바 악기 내부의 공명 공동(Acoustic Resonance Chamber) 주파수 특성을 고려하여 하우징 바디의 벽면 두께와 가공 테이퍼각을 OnShape 상에서 최적화한 기술 청사진입니다. 금속 건반 지지 플레이트의 결합 조인트가 하우징과 유격 없이 빌드되도록 계산되었습니다.">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
+              <polygon points="100,50 220,50 200,140 120,140" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+              <circle cx="160" cy="105" r="14" stroke="#0ea5e9" stroke-width="1" fill="none"/>
+              <line x1="160" y1="50" x2="160" y2="90" stroke="#10b981" stroke-width="1.5"/>
+              <line x1="152" y1="50" x2="152" y2="85" stroke="#10b981" stroke-width="1.2"/>
+              <line x1="168" y1="50" x2="168" y2="85" stroke="#10b981" stroke-width="1.2"/>
+              <line x1="144" y1="50" x2="144" y2="80" stroke="#10b981" stroke-width="1.2"/>
+              <line x1="176" y1="50" x2="176" y2="80" stroke="#10b981" stroke-width="1.2"/>
+              <line x1="136" y1="50" x2="136" y2="75" stroke="#10b981" stroke-width="1.2"/>
+              <line x1="184" y1="50" x2="184" y2="75" stroke="#10b981" stroke-width="1.2"/>
+              <text x="160" y="24" font-family="monospace" font-size="8.5" fill="#64748b" text-anchor="middle">FUSION 360 / KALIMBA BODY HOUSING</text>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">3D CAD Blueprint Only</span>
+          <h4 class="font-bold text-white mt-2.5">피아노 칼림바 (Kalimba) 하우징 설계</h4>
+          <p class="text-xs text-slate-500 mt-1">2021. 10 | 음향 공명 및 플레이트 유격 제정 모델</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1085,6 +1193,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Beautiful Floating Notification Toast (Mandatory CSP/UX Upgrade - Absolutely No Alert Window) -->
+  <div id="toast-notification" class="fixed bottom-6 left-6 z-[100] transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-rose-950 border border-rose-800 text-rose-200 px-5 py-3.5 rounded-2xl flex items-center gap-3 shadow-2xl max-w-sm">
+    <i class="fa-solid fa-circle-exclamation text-rose-400 text-lg"></i>
+    <span id="toast-message" class="text-xs font-medium">경고 메시지</span>
+  </div>
 
   <!-- Detailed Lecture Modal (Dynamically Generated Slider & Spec Sheets) -->
   <div id="lecture-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkbg-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
@@ -1157,13 +1271,67 @@
     </div>
   </div>
 
+  <!-- Woodwork Detail View Lightbox Modal (Dynamic Blurred Letterbox Support) -->
+  <div id="woodwork-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkbg-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl relative flex flex-col">
+      <!-- Close button top-right -->
+      <button id="woodwork-modal-close" class="absolute top-4 right-4 z-20 p-2.5 text-slate-400 hover:text-white bg-slate-950/40 hover:bg-slate-800 rounded-xl transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      
+      <!-- Modal Content Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12">
+        <!-- Left/Top: Image/Blueprint preview with 100% display contain -->
+        <div class="md:col-span-7 aspect-square sm:aspect-video md:aspect-square bg-slate-950 relative overflow-hidden flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-800">
+          <!-- Blurred background duplicate container -->
+          <div id="woodwork-modal-blur-container" class="absolute inset-0 w-full h-full"></div>
+          <!-- Crisp foreground media container -->
+          <div id="woodwork-modal-media-container" class="relative z-10 w-full h-full flex items-center justify-center"></div>
+        </div>
+        <!-- Right/Bottom: Description Spec -->
+        <div class="md:col-span-5 p-6 flex flex-col justify-between bg-slate-900">
+          <div class="space-y-4">
+            <div>
+              <span id="woodwork-modal-tag" class="text-[10px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">WOOD WORK</span>
+              <h4 id="woodwork-modal-title" class="text-lg font-bold text-white mt-3">작품 제목</h4>
+              <p id="woodwork-modal-subtitle" class="text-xs text-slate-500 mt-1">작업 연도 및 납품 형태</p>
+            </div>
+            <p id="woodwork-modal-description" class="text-xs text-slate-400 leading-relaxed whitespace-pre-wrap">작품 상세 설계 의도와 엔지니어링 마감 기술 설명이 들어옵니다.</p>
+          </div>
+          <!-- Spec badge -->
+          <div class="pt-4 border-t border-slate-800/60 mt-6 flex items-center gap-2 text-[10px] text-slate-500">
+            <i class="fa-solid fa-compass-drafting text-brand-400 animate-pulse"></i>
+            <span>3D CAD 설계 및 제작 공학 기법 적용</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Back to Top Floating Button -->
   <button id="back-to-top" class="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/20 translate-y-20 opacity-0 transition-all duration-300 focus:outline-none" aria-label="맨 위로 이동">
     <i class="fa-solid fa-arrow-up text-lg"></i>
   </button>
 
   <script>
-    // 1. Mobile Menu Toggle
+    // 1. Toast Notification Handler (Alternative to standard alert() block)
+    function showToast(message, type = 'error') {
+      const toast = document.getElementById('toast-notification');
+      const toastMsg = document.getElementById('toast-message');
+      
+      toastMsg.innerText = message;
+      if (type === 'error') {
+        toast.className = "fixed bottom-6 left-6 z-[100] transform translate-y-0 opacity-100 transition-all duration-300 bg-rose-950 border border-rose-800 text-rose-200 px-5 py-3.5 rounded-2xl flex items-center gap-3 shadow-2xl max-w-sm pointer-events-auto";
+      } else {
+        toast.className = "fixed bottom-6 left-6 z-[100] transform translate-y-0 opacity-100 transition-all duration-300 bg-emerald-950 border border-emerald-800 text-emerald-200 px-5 py-3.5 rounded-2xl flex items-center gap-3 shadow-2xl max-w-sm pointer-events-auto";
+      }
+      
+      setTimeout(() => {
+        toast.className = "fixed bottom-6 left-6 z-[100] transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-rose-950 border border-rose-800 text-rose-200 px-5 py-3.5 rounded-2xl flex items-center gap-3 shadow-2xl max-w-sm";
+      }, 4000);
+    }
+
+    // 2. Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1178,7 +1346,7 @@
       });
     });
 
-    // 2. Navigation Highlighting on Scroll (Intersection Observer)
+    // 3. Navigation Highlighting on Scroll (Intersection Observer)
     const sections = document.querySelectorAll('section, header');
     const navLinks = document.querySelectorAll('nav a');
 
@@ -1204,7 +1372,7 @@
 
     sections.forEach(section => observer.observe(section));
 
-    // 3. Advanced Live Search & Category Filtering
+    // 4. Advanced Live Search & Category Filtering
     const searchInput = document.getElementById('lecture-search');
     const lectureCards = document.querySelectorAll('.lecture-card');
     const filterButtons = document.querySelectorAll('.category-btn');
@@ -1245,7 +1413,7 @@
       });
     });
 
-    // 4. Back to Top Button Functionality
+    // 5. Back to Top Button Functionality
     const backToTopBtn = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
@@ -1265,7 +1433,8 @@
       });
     });
 
-    // 5. AI 강좌 진단 시스템 (CORS 우회 및 로컬 하이브리드 가동 지원)
+    // 6. AI 강좌 진단 시스템 (CORS 우회 및 로컬 하이브리드 가동 지원)
+    // ⚠️ [웹앱 배포 정보]: 구글 Apps Script로 Code.gs 배포 후 아래 문자열에 웹앱 주소를 넣으면 Gemini와 다이렉트로 연동됩니다.
     const GAS_API_URL = ""; 
 
     const analyzeBtn = document.getElementById('analyze-btn');
@@ -1281,7 +1450,7 @@
     const resultFeedback = document.getElementById('result-feedback');
     const matchingSourceBadge = document.getElementById('matching-source-badge');
 
-    // 클라이언트 스마트 폴백 데이터베이스
+    // 클라이언트용 스마트 폴백 인프라 데이터베이스
     const localSkillDB = [
       { keys: ['아두이노', 'arduino', '피지컬', '센서', '회로', '스피커', '임베디드', '로봇', '드론'], score: 98, title: '아두이노 기반 피지컬 메이커 창의 교실', hours: 12, fb: '전기공학 전공 및 로봇시스템 엔지니어링 경력을 완벽하게 녹여낸 명쾌한 물리 컴퓨팅 교육을 선사합니다.' },
       { keys: ['앱시트', 'appsheet', '노코드', 'nocode', '앱 개발', '앱만들기'], score: 99, title: 'AppSheet로 구현하는 나만의 스마트 업무 앱 개발', hours: 8, fb: '구글 공인 에듀케이터 Level 2의 풍부한 교육 경험을 바탕으로, 코딩 없이 실제 구동 가능한 나만의 비즈니스 앱을 안정적으로 완성합니다.' },
@@ -1296,7 +1465,7 @@
       const rawName = document.getElementById('course-name').value.trim();
 
       if (!rawName) {
-        alert('희망하시는 강좌 분야 또는 핵심 키워드를 입력해 주세요!');
+        showToast('희망하시는 강좌 분야 또는 핵심 키워드를 입력해 주세요!');
         return;
       }
 
@@ -1406,7 +1575,7 @@
       analyzeBtn.disabled = false;
     }
 
-    // 6. Detailed Lecture Modals and Image Slider Logic
+    // 7. Detailed Lecture Modals and Image Slider Logic
     const lectureModal = document.getElementById('lecture-modal');
     const modalCloseBtn = document.getElementById('modal-close-btn');
     const modalTag = document.getElementById('modal-tag');
@@ -1427,20 +1596,18 @@
 
     // Helper: Generate fallback placeholder svg gradients
     function getFallbackUrl(lectureId, imgIdx) {
-      return `data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 360\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><defs><linearGradient id=\'g\' x1=\'0%\' y1=\'0%\' x2=\'100%\' y2=\'100%\'><stop offset=\'0%\' stop-color=\'%23075985\'/><stop offset=\'100%\' stop-color=\'%230f172a\'/></linearGradient></defs><rect width=\'100%\' height=\'100%\' fill=\'url(%23g)\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%2338bdf8\' text-anchor=\'middle\'>현장 사진 준비 중 (lecture-${lectureId}-${imgIdx}.jpg)</text></svg>`;
+      return `data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 360\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><defs><linearGradient id=\'g\' x1=\'0%\' y1=\'0%\' x2=\'100%\' y2=\'100%\\'><stop offset=\'0%\' stop-color=\'%23075985\'/><stop offset=\'100%\' stop-color=\'%230f172a\'/></linearGradient></defs><rect width=\'100%\' height=\'100%\' fill=\'url(%23g)\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%2338bdf8\' text-anchor=\'middle\'>현장 사진 준비 중 (lecture-${lectureId}-${imgIdx}.jpg)</text></svg>`;
     }
 
     function updateSliderImage() {
       const imgPath = `lecture-${currentLectureId}-${currentSlideIdx + 1}.jpg`;
       modalSliderImg.src = imgPath;
       
-      // Setup onerror to use customized SVG gradient
       modalSliderImg.onerror = function() {
         this.onerror = null;
         this.src = getFallbackUrl(currentLectureId, currentSlideIdx + 1);
       };
 
-      // Indicators styles update
       indicatorButtons.forEach((btn, idx) => {
         if (idx === currentSlideIdx) {
           btn.className = "w-4 h-2 rounded-full bg-brand-400 transition-all";
@@ -1459,14 +1626,13 @@
         const time = card.getAttribute('data-time');
         const desc = card.getAttribute('data-description');
         
-        const cardTag = card.querySelector('.lecture-card span').innerText;
-        const cardTitle = card.querySelector('.lecture-card h4').innerText;
+        const cardTag = card.querySelector('span').innerText;
+        const cardTitle = card.querySelector('h4').innerText;
         const cardSubtitle = card.querySelector('.lecture-card p').innerText;
 
         currentLectureId = id;
         currentSlideIdx = 0;
 
-        // Apply fields
         modalTag.innerText = cardTag;
         modalTitle.innerText = cardTitle;
         modalSubtitle.innerText = cardSubtitle;
@@ -1475,35 +1641,31 @@
         modalSpecTime.innerText = time;
         modalSpecDescription.innerText = desc;
 
-        // Initialize Slider
         updateSliderImage();
 
-        // Reveal Modal Animation
         lectureModal.classList.remove('hidden');
         setTimeout(() => {
           lectureModal.classList.remove('opacity-0');
         }, 50);
-        document.body.style.overflow = 'hidden'; // block page scrolling
+        document.body.style.overflow = 'hidden';
       });
     });
 
-    // Close Modal Function
-    function closeModal() {
+    function closeLectureModal() {
       lectureModal.classList.add('opacity-0');
       setTimeout(() => {
         lectureModal.classList.add('hidden');
       }, 300);
-      document.body.style.overflow = 'auto'; // restore scroll
+      document.body.style.overflow = 'auto';
     }
 
-    modalCloseBtn.addEventListener('click', closeModal);
+    modalCloseBtn.addEventListener('click', closeLectureModal);
     lectureModal.addEventListener('click', (e) => {
       if (e.target === lectureModal) {
-        closeModal();
+        closeLectureModal();
       }
     });
 
-    // Slide Controls
     sliderPrev.addEventListener('click', (e) => {
       e.stopPropagation();
       currentSlideIdx = (currentSlideIdx === 0) ? 3 : currentSlideIdx - 1;
@@ -1522,6 +1684,82 @@
         currentSlideIdx = parseInt(btn.getAttribute('data-slide'));
         updateSliderImage();
       });
+    });
+
+    // 8. Wood Work Dedicated Lightbox Modal Logic with Custom Blur Background & Blueprint Cloning
+    const woodworkModal = document.getElementById('woodwork-modal');
+    const woodworkCloseBtn = document.getElementById('woodwork-modal-close');
+    const woodworkModalTag = document.getElementById('woodwork-modal-tag');
+    const woodworkModalTitle = document.getElementById('woodwork-modal-title');
+    const woodworkModalSubtitle = document.getElementById('woodwork-modal-subtitle');
+    const woodworkModalDesc = document.getElementById('woodwork-modal-description');
+    const woodworkBlurContainer = document.getElementById('woodwork-modal-blur-container');
+    const woodworkMediaContainer = document.getElementById('woodwork-modal-media-container');
+
+    const woodworkCards = document.querySelectorAll('.woodwork-card');
+
+    woodworkCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const subtitle = card.getAttribute('data-subtitle');
+        const type = card.getAttribute('data-type');
+        const imgUrl = card.getAttribute('data-img');
+        const desc = card.getAttribute('data-description');
+
+        woodworkModalTitle.innerText = title;
+        woodworkModalSubtitle.innerText = subtitle;
+        woodworkModalDesc.innerText = desc;
+
+        if (type === 'photo') {
+          woodworkModalTag.innerText = "WOOD WORK (PHOTO)";
+          woodworkModalTag.className = "text-[10px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md";
+          
+          // Ultra-Premium blurred background copy inside modal to seamlessly match photo colors
+          woodworkBlurContainer.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover filter blur-xl opacity-40 scale-110">`;
+          
+          // Foregound contained crisp image
+          woodworkMediaContainer.innerHTML = `<img src="${imgUrl}" alt="${title}" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><text x=\'160\' y=\'90\' fill=\'%23ffffff\' text-anchor=\'middle\'>Image Loading</text></svg>';">`;
+        } else {
+          woodworkModalTag.innerText = "3D CAD BLUEPRINT";
+          woodworkModalTag.className = "text-[10px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md";
+          
+          // Blueprint style tech grids background
+          woodworkBlurContainer.innerHTML = `<div class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]"></div>`;
+          
+          // Clone the beautiful SVG inside the card directly to the modal for lossless scaling
+          const svgContent = card.querySelector('.aspect-video').innerHTML;
+          woodworkMediaContainer.innerHTML = `<div class="w-full h-full p-6 flex items-center justify-center">${svgContent}</div>`;
+        }
+
+        woodworkModal.classList.remove('hidden');
+        setTimeout(() => {
+          woodworkModal.classList.remove('opacity-0');
+        }, 50);
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeWoodworkModal() {
+      woodworkModal.classList.add('opacity-0');
+      setTimeout(() => {
+        woodworkModal.classList.add('hidden');
+      }, 300);
+      document.body.style.overflow = 'auto';
+    }
+
+    woodworkCloseBtn.addEventListener('click', closeWoodworkModal);
+    woodworkModal.addEventListener('click', (e) => {
+      if (e.target === woodworkModal) {
+        closeWoodworkModal();
+      }
+    });
+
+    // Keyboard ESC listener to close any opened modal dialogs
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLectureModal();
+        closeWoodworkModal();
+      }
     });
   </script>
 </body>
