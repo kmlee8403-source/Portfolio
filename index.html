@@ -139,10 +139,9 @@
           </div>
         </div>
 
-        <!-- Image Column (Frameless, naturally blending style with Dark Glow) -->
+        <!-- Image Column -->
         <div class="md:col-span-5 flex justify-center order-1 md:order-2">
           <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
-            <!-- Frameless profile image with a smooth blend effect -->
             <img src="이강민 사진1.png" alt="이강민 강사 프로필 사진" class="w-full h-full object-contain filter drop-shadow-[0_10px_15px_rgba(14,165,233,0.15)]" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%230f172a\'/><circle cx=\'100\' cy=\'85\' r=\'38\' fill=\'%230ea5e9\'/><path d=\'M40 170c0-25 25-45 60-45s60 20 60 45H40z\' fill=\'%230ea5e9\'/><text x=\'100\' y=\'172\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>이강민 강사</text></svg>';">
           </div>
         </div>
@@ -300,7 +299,7 @@
             <h3 class="text-2xl font-bold text-white">전공 학력</h3>
           </div>
           <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
-            <!-- Ed 1 (New Master's Program) -->
+            <!-- Ed 1 -->
             <div class="relative pl-8">
               <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-brand-400 ring-4 ring-darkbg-950 animate-pulse"></div>
               <span class="text-xs font-semibold text-brand-400 block">2026 - 현재</span>
@@ -380,22 +379,6 @@
                 <p class="text-xs text-slate-500">한국산업인력공단 / 2009</p>
               </div>
             </div>
-            <!-- Cert Card 6 -->
-            <div class="p-3 bg-slate-900/30 border border-slate-800/40 border-dashed rounded-xl flex items-start gap-3 opacity-50">
-              <i class="fa-solid fa-circle-minus text-slate-600 mt-1"></i>
-              <div>
-                <h4 class="font-bold text-slate-300 text-sm">Certified LabVIEW Developer <span class="text-xs text-rose-400 font-normal">(만료)</span></h4>
-                <p class="text-xs text-slate-500">National Instruments / 2022 (Exp.)</p>
-              </div>
-            </div>
-            <!-- Cert Card 7 -->
-            <div class="p-3 bg-slate-900/30 border border-slate-800/40 border-dashed rounded-xl flex items-start gap-3 opacity-50">
-              <i class="fa-solid fa-circle-minus text-slate-600 mt-1"></i>
-              <div>
-                <h4 class="font-bold text-slate-300 text-sm">품질관리담당자 <span class="text-xs text-rose-400 font-normal">(만료)</span></h4>
-                <p class="text-xs text-slate-500">한국표준협회 / 2022 (Exp.)</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -409,6 +392,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
           <h2 class="text-3xl font-bold text-white">상세 강의 이력</h2>
+          <p class="text-sm text-slate-500 mt-2">각 강의 카드를 클릭하시면 상세 설명과 현장 사진을 보실 수 있습니다.</p>
         </div>
         <div class="mt-4 md:mt-0 flex gap-2">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
@@ -432,10 +416,17 @@
         </div>
       </div>
 
-      <!-- Grid for Lectures -->
+      <!-- Grid for Lectures (With custom attributes for Dynamic Modals) -->
       <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
         <!-- Card 1 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="공무원 정보화교육연수 생성형AI 승화전사 교사 스마트 워크 Google 클래스룸 노코드 Appsheet 클래스 매니저 레이저조각기 학교 메이커 장비 활용법 제주융합과학연구원 연수 메이커">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="1"
+             data-target="교사, 공무원, 중고등 영재"
+             data-location="제주융합과학연구원 본원 및 분원"
+             data-time="2024. 07 ~ 현재 (수시 진행)"
+             data-description="정보화 시대 핵심 리터러시를 다루는 종합 직무 연수입니다. 공무원 및 현직 교원 분들을 모시고 최적의 생성형 AI 디자인 프로세스, Google Workspace 기반 에듀테크 협업 시스템 구축을 설계했습니다. 더불어 첨단 영재 학생들을 대상으로 레이저 조각기 정밀 도면 가공 실습 및 아두이노 사물인터넷(IoT) 연동 메이커스 융합 프로젝트까지 전담 교육을 주도하고 있습니다."
+             data-keywords="공무원 정보화교육연수 생성형AI 승화전사 교사 스마트 워크 Google 클래스룸 노코드 Appsheet 클래스 매니저 레이저조각기 학교 메이커 장비 활용법 제주융합과학연구원 연수 메이커">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">연수 & 특강</span>
@@ -448,13 +439,18 @@
               <li>교사를 위한 스마트 워크 - Google 클래스룸과 생성형 AI</li>
               <li>노코드 기반(AppSheet) 클래스 매니저 앱 만들기 실습</li>
               <li>레이저 조각기를 활용한 학교 메이커 장비 실무 교육</li>
-              <li>레이저조각기, 3D 프린팅, 아두이노 프로그램 - 중,고등학생, 첨단과학영재</li>
             </ul>
           </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="바이브코딩 해커톤 중등부 Google Apps Script Gemini 대구소프트웨어마이스터고등학교 아이코어이앤씨 코딩 AI">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="2"
+             data-target="소프트웨어마이스터고 재학생 (중등부 대상)"
+             data-location="대구소프트웨어마이스터고등학교 실습실"
+             data-time="2026. 07"
+             data-description="대구소마고에서 주관한 융합 바이브코딩 캠프 해커톤의 메인 강사로 출강했습니다. 학생들이 실시간으로 구글 스프레드시트의 데이터를 제어하는 'Google Apps Script' 언어 구조와 최신 'Gemini Pro API'를 접목한 인공지능 채팅 비서, 일상 자동화 기능을 직접 빌드하고 배포해보는 밀도 높은 개발형 캠프를 완수했습니다."
+             data-keywords="바이브코딩 해커톤 중등부 Google Apps Script Gemini 대구소프트웨어마이스터고등학교 아이코어이앤씨 코딩 AI">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">해커톤 메인강사</span>
@@ -469,7 +465,13 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="찾아가는 Physical coding 알버트 LEGO Spike 데이터 활용 바이브 코딩 세화중 추자중 우도중 카카오 제주대학교 코딩">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="3"
+             data-target="세화중, 추자중, 우도중 학생들"
+             data-location="카카오 제주 오피스 및 도내 도서지역 중학교"
+             data-time="2025. 12"
+             data-description="제주 도서지역 청소년들을 위한 융합 IT 캠프입니다. 카카오 자율주행 모듈 교구인 알버트 로봇 및 LEGO Spike 교구를 활용하여 자율주행 센서 데이터를 수집하는 환경을 설계했습니다. 획득한 물리 환경 데이터를 기반으로 바이브 코딩 알고리즘을 연동하여 코딩에 흥미를 느끼고 실시간 인터랙션 제어 기법을 경험하는 프로젝트 수업을 진행했습니다."
+             data-keywords="찾아가는 Physical coding 알버트 LEGO Spike 데이터 활용 바이브 코딩 세화중 추자중 우도중 카카오 제주대학교 코딩">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">피지컬 코딩</span>
@@ -484,7 +486,13 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="SW AI캠프 AppSheet 나만의 맛집리스트 천안여자상업고등학교 아이코어이앤씨 AppSheet AI">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="4"
+             data-target="상업 계열 고등학교 재학생"
+             data-location="천안여자상업고등학교 컴퓨터 실습실"
+             data-time="2025. 11"
+             data-description="미래 상업 실무를 준비하는 고등학생들에게 코딩의 복잡한 장벽을 낮춰주는 '노코드(No-Code) 앱시트' 캠프를 리드했습니다. 스프레드시트 데이터베이스 설계부터 시작해 UX 화면 기획, 위치기반(GPS) 맵 API 연동을 녹여낸 '나만의 맞춤형 동네 맛집 아카이빙 앱'을 스스로 설계하고 각자의 모바일에 실시간 배포하는 전 과정을 성공적으로 완성했습니다."
+             data-keywords="SW AI캠프 AppSheet 나만의 맛집리스트 천안여자상업고등학교 아이코어이앤씨 AppSheet AI">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">노코드 앱개발</span>
@@ -499,7 +507,13 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="제주AI로봇 창의인재 양성과정 라즈베리파이 LEGO Spike 머신러닝 비전 센싱 AI 프로젝트 서귀포 제주 제주테크노파크 아이코어이앤씨 AI 코딩">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="5"
+             data-target="AI 로봇 관심 고등학생 및 예비 영재"
+             data-location="제주 벤처마루 세미나실 (제주테크노파크)"
+             data-time="2025. 11"
+             data-description="라즈베리파이 싱글보드 컴퓨터와 LEGO Spike 하드웨어의 이기종 통신 연동을 메인 테마로 다룬 심화형 AI 프로젝트 워크숍입니다. OpenCV 카메라 모듈을 통해 실시간 사물을 스캔하고, 머신러닝 비전 학습 모델로 물건을 자동 추론 및 감지하여 LEGO 로봇 메커니즘을 구동하는 지능형 물류 분류 시스템 시제품을 완성하며 극강의 성취감을 안겼습니다."
+             data-keywords="제주AI로봇 창의인재 양성과정 라즈베리파이 LEGO Spike 머신러닝 비전 센싱 AI 프로젝트 서귀포 제주 제주테크노파크 아이코어이앤씨 AI 코딩">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">AI 비전 센싱</span>
@@ -514,7 +528,13 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="사제동행 특강 AppSheet 나만의 스터디매니저 앱 경남교육청 아이코어이앤씨 AppSheet">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="6"
+             data-target="경남도내 초중등 현직 교사 및 학생"
+             data-location="경남교육청 미래교육원 AI 체험실"
+             data-time="2025. 09"
+             data-description="경남교육청 사제동행 특강으로 진행된 맞춤 교육 툴 빌딩 캠프입니다. 일상의 학습 관리 습관을 교사와 학생이 한 공간에서 케어할 수 있도록 스터디 매니저 앱을 개발했습니다. 구글 계정 동기화를 통해 숙제 기록, 자기주도학습 플래너, 성취 그래프를 앱시트 노코드 프레임워크에 녹여내어 교육 현장의 실용적인 에듀테크 대안을 제시했습니다."
+             data-keywords="사제동행 특강 AppSheet 나만의 스터디매니저 앱 경남교육청 아이코어이앤씨 AppSheet">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">사제동행 특강</span>
@@ -529,7 +549,13 @@
         </div>
 
         <!-- Card 7 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="Appsheet 나만의 앱 스케줄러 독서관리 맛집리스트 3D모델링 3D프린터 제주평생교육장학진흥원 AppSheet 메이커">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="7"
+             data-target="평생 교육 시민 수강생 및 직무 역량 강화 대상"
+             data-location="제주평생교육장학진흥원 메이커 교실"
+             data-time="2025. 03 ~ 현재"
+             data-description="일반 시민들을 대상으로 모바일 생산성 도구와 3D 하드웨어 디자인을 동시에 전수하는 입체적 융합 정규 교육과정입니다. 모바일상에서 본인의 일정을 정리하는 캘린더 스케줄러, 독서 이력 추적 앱시트를 직접 기획하고, 후반부에는 OnShape와 Fusion360 프로그램을 사용해 공간 수납용 시제품 하우징 도면을 3D 프린터로 정밀 압출 가공하는 기회를 선사했습니다."
+             data-keywords="Appsheet 나만의 앱 스케줄러 독서관리 맛집리스트 3D모델링 3D프린터 제주평생교육장학진흥원 AppSheet 메이커">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">평생 교육</span>
@@ -544,7 +570,13 @@
         </div>
 
         <!-- Card 8 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="창작동아리 AppSheet 교원 연수 Google Site 스터디 페이지 학급관리 앱 제주여자상업고등학교 아이코어이앤씨 AppSheet 연수">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="8"
+             data-target="제주여상 창작동아리 재학생 및 교원 대표"
+             data-location="제주여자상업고등학교 컴퓨터 실습실"
+             data-time="2024. 11"
+             data-description="학교 내 자치 문화를 바꾸는 스마트 워크 교육입니다. 학생 동아리원들에게는 업무 생산성 앱시트를 사용한 동아리 부원 자산 및 부스 관리 스케줄러 개발을 전수했고, 지도 교사 분들에게는 Google Site 및 Sheets를 유기적으로 동기화하여 학부모 상담 및 학급 과제 피드백 시스템을 원클릭으로 구동할 수 있는 교육용 스마트 워킹 시트 개설법을 전수했습니다."
+             data-keywords="창작동아리 AppSheet 교원 연수 Google Site 스터디 페이지 학급관리 앱 제주여자상업고등학교 아이코어이앤씨 AppSheet 연수">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">교원 & 학생 융합</span>
@@ -559,7 +591,13 @@
         </div>
 
         <!-- Card 9 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="브릭 오토마타 과학실험 드론캠프 드론 3D모델링 드론조종 3D펜 레이저조각기 가족 체험강의 3D모델링 및 프린팅 제주과학문화협회 메이커">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="9"
+             data-target="도내 초중등 가족 수강생"
+             data-location="제주과학고등학교 메이커 센터 및 비행 실습실"
+             data-time="2024. 07 ~ 2025. 07"
+             data-description="학부모와 청소년 자녀가 한 조를 이루어 아날로그와 디지털 융합을 탐구하는 가족 동행 캠프입니다. 오토마타 구조설계, 레이저 조각 장비를 사용한 가족 나무 팻말 조각, 3D펜을 사용한 외관 커버 하우징 제작, 그리고 비행 원리를 배울 수 있는 드론 3D 모델링 및 무선 캘리브레이션 조종 교육을 결합하여 오감 만족형 체험 교육을 구현해 냈습니다."
+             data-keywords="브릭 오토마타 과학실험 드론캠프 드론 3D모델링 드론조종 3D펜 레이저조각기 가족 체험강의 3D모델링 및 프린팅 제주과학문화협회 메이커">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">융합 메이커스</span>
@@ -574,7 +612,13 @@
         </div>
 
         <!-- Card 10 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="아두이노 회로 코딩 실습 표선고등학교 팹랩 제주 코딩 메이커">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="10"
+             data-target="표선고 IB DP 준비 학생 및 일반고 IT 관심 청소년"
+             data-location="표선고등학교 첨단 과학실"
+             data-time="2021. 12"
+             data-description="IT 하드웨어 제어의 표준이자 기초인 아두이노 중심의 집중 부트캠프입니다. 전자공학 전기 브레드보드 배선 및 단선을 예방하는 저항 배치를 체계적으로 분석한 후, C++ 프로그래밍 언어를 기반으로 한 초음파 센서 정밀 보정, RGB LED 듀티비 제어를 거치며 기본기를 탄탄하게 연마할 수 있도록 이끌었습니다."
+             data-keywords="아두이노 회로 코딩 실습 표선고등학교 팹랩 제주 코딩 메이커">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">고등 실무 교육</span>
@@ -589,7 +633,13 @@
         </div>
 
         <!-- Card 11 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="디지털 교육 노션 One Note 스마트폰 활용 AI 엑셀 기초 중급 한글 Canva 승화전사 아두이노 블루투스 스피커 만들기 LEGO Spike 제주융합과학연구원 연수 코딩">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="11"
+             data-target="교직원 및 지역 공무원 아카데미"
+             data-location="제주융합과학연구원 전산실 및 메이커 교실"
+             data-time="2023. 12 ~ 현재 (정규 특강)"
+             data-description="정보화 소외를 극복하고 개인의 생산성을 최고의 속도로 끌어올리는 올인원 스택 워크숍입니다. 노션 및 원노트를 활용한 세련된 교안 백업 보관법부터 시작하여, 엑셀 실전 중급 매크로 수식 활용, 캔바 생성형 그래픽 융합 템플릿 제어, 그리고 마지막 메이커 파트인 블루투스 사운드 모듈 하드웨어 배선 공예 제작까지 완수하는 올라운드 생산성 캠프입니다."
+             data-keywords="디지털 교육 노션 One Note 스마트폰 활용 AI 엑셀 기초 중급 한글 Canva 승화전사 아두이노 블루투스 스피커 만들기 LEGO Spike 제주융합과학연구원 연수 코딩">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">디지털 에센셜</span>
@@ -604,7 +654,13 @@
         </div>
 
         <!-- Card 12 -->
-        <div class="lecture-card bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 hover:shadow-lg transition" data-keywords="디지털 문해력 기술지원 아라초등학교 코딩">
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
+             data-id="12"
+             data-target="아라초등학교 고학년 재학생 및 담임 교원"
+             data-location="아라초등학교 컴퓨터실 및 멀티 교실"
+             data-time="2025. 04"
+             data-description="디지털 정보의 홍수 속에서 초등학생이 안전하고 비판적으로 소프트웨어 리터러시를 다질 수 있게 설계한 맞춤 케어 지원 사업입니다. 일상 속 유해 정보 필터링, 협업 및 커뮤니케이션 플랫폼의 슬기로운 댓글 사용법 교정을 수행하고, 태블릿 등 스마트 에듀테크 환경이 원활하게 작동될 수 있도록 전산 환경 정비 및 컨설팅까지 함께 완료했습니다."
+             data-keywords="디지털 문해력 기술지원 아라초등학교 코딩">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">초등 디지털 교육</span>
@@ -621,8 +677,130 @@
     </div>
   </section>
 
-  <!-- AI Course Analyzer Section -->
-  <section id="ai-analyzer" class="py-20 bg-darkbg-950 border-t border-slate-900">
+  <!-- Awards / Training Section -->
+  <section id="awards" class="py-20 bg-darkbg-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-white">수상, 심사 및 멘토링 이력</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Awards and Judging -->
+        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
+              <i class="fa-solid fa-gavel text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">심사 및 멘토링 경력</h3>
+          </div>
+          
+          <div class="space-y-6">
+            <!-- Award 1 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">심사위원 / 2026. 07</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">바이브코딩 해커톤 (중·고등부) 심사</h4>
+              <p class="text-xs text-slate-500 mt-1">대구소프트웨어마이스터고등학교, 아이코어이앤씨</p>
+            </div>
+            <!-- Award 2 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">심사위원 / 2025. 12</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">2025 제주 AI 유스 페스티벌 AI 로봇 창의 경진대회</h4>
+              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
+            </div>
+            <!-- Award 3 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">멘토링 / 2024. 12</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">제주 Google AI 아이디어 해커톤 멘토링</h4>
+              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
+              <p class="text-xs text-slate-400 mt-1 italic leading-relaxed">
+                멘토링 대상 프로젝트: <strong>&apos;Growmate&apos;</strong> (AppSheet 활용 성장기록관리 앱 - 최우수 AI 기술상 수상)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Trainings -->
+        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
+              <i class="fa-solid fa-book-open text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">전문 연수 및 외부 활동</h3>
+          </div>
+
+          <div class="space-y-4 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 01</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">[2026 퓨처비 페스타] 교육자 라운드 테이블</h4>
+                <p class="text-xs text-slate-500">스마일게이트 퓨처랩</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2025. 07 ~ 08</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">AI 강의 역량 레벨업 과정 수료</h4>
+                <p class="text-xs text-slate-500">제주ICT | 프로젝트: 커북Oi (AppSheet + Sheets + Apps Script + API 활용 독서기록 앱 우수 1위)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">AICE BASIC & ASSOCIATE 자격 취득과정</h4>
+                <p class="text-xs text-slate-500">제주RIS</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 02</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">Google AI 강사양성 과정 수료</h4>
+                <p class="text-xs text-slate-500">Google, 제주평생교육장학진흥원, 아이코어이앤씨</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 09 ~ 11</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">메이커스 창작 동아리 활동</h4>
+                <p class="text-xs text-slate-500">제주콘텐츠코리아랩 (레이저조각기 및 CNC 교육)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">강사양성 교육 수료</h4>
+                <p class="text-xs text-slate-500">제주평생교육장학진흥원 (일러스트, 레이저조각기, CNC조각기 강사양성 & UV프린터, 커팅플로터 굿즈 제작)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 10 ~ 11</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">소셜메이커스 3기 수료</h4>
+                <p class="text-xs text-slate-500">팹랩서울+제주 (3D프린터, 레이저조각기, 아두이노 / 스마트화분 제작)</p>
+              </div>
+            </div>
+            <!-- Training Item -->
+            <div class="flex gap-3">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 08 ~ 10</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">제주 AI활용 SW 인력양성 프로젝트 수료</h4>
+                <p class="text-xs text-slate-500">제주평생교육장학진흥원, SKT (알버트 활용 블록코딩 및 플랫폼 서비스 개발)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Course Analyzer Section (Placed before wood work as primary teaching service close-hook) -->
+  <section id="ai-analyzer" class="py-20 bg-darkbg-900/50 border-t border-slate-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold mb-3">
@@ -719,198 +897,128 @@
     </div>
   </section>
 
-  <!-- Awards / Training Section -->
-  <section id="awards" class="py-20 bg-darkbg-950">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl font-bold text-white">수상, 심사 및 멘토링 이력</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Awards and Judging -->
-        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
-              <i class="fa-solid fa-gavel text-lg"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white">심사 및 멘토링 경력</h3>
-          </div>
-          
-          <div class="space-y-6">
-            <!-- Award 1 -->
-            <div class="border-l-4 border-brand-500 pl-4 py-1">
-              <span class="text-xs font-semibold text-brand-400">심사위원 / 2026. 07</span>
-              <h4 class="font-bold text-slate-100 text-sm sm:text-base">바이브코딩 해커톤 (중·고등부) 심사</h4>
-              <p class="text-xs text-slate-500 mt-1">대구소프트웨어마이스터고등학교, 아이코어이앤씨</p>
-            </div>
-            <!-- Award 2 -->
-            <div class="border-l-4 border-brand-500 pl-4 py-1">
-              <span class="text-xs font-semibold text-brand-400">심사위원 / 2025. 12</span>
-              <h4 class="font-bold text-slate-100 text-sm sm:text-base">2025 제주 AI 유스 페스티벌 AI 로봇 창의 경진대회</h4>
-              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
-            </div>
-            <!-- Award 3 -->
-            <div class="border-l-4 border-brand-500 pl-4 py-1">
-              <span class="text-xs font-semibold text-brand-400">멘토링 / 2024. 12</span>
-              <h4 class="font-bold text-slate-100 text-sm sm:text-base">제주 Google AI 아이디어 해커톤 멘토링</h4>
-              <p class="text-xs text-slate-500 mt-1">Google, JTP, 아이코어이앤씨 주관</p>
-              <p class="text-xs text-slate-400 mt-1 italic leading-relaxed">
-                멘토링 대상 프로젝트: <strong>&apos;Growmate&apos;</strong> (AppSheet 활용 성장기록관리 앱 - 최우수 AI 기술상 수상)
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Professional Trainings -->
-        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
-              <i class="fa-solid fa-book-open text-lg"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white">전문 연수 및 외부 활동</h3>
-          </div>
-
-          <div class="space-y-4">
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 01</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">[2026 퓨처비 페스타] 교육자 라운드 테이블</h4>
-                <p class="text-xs text-slate-500">스마일게이트 퓨처랩</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2025. 07 ~ 08</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">AI 강의 역량 레벨업 과정 수료</h4>
-                <p class="text-xs text-slate-500">제주ICT | 프로젝트: 커북Oi (AppSheet + Sheets + Apps Script + API 활용 독서기록 앱 우수 1위)</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 08 ~ 10</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">AICE BASIC & ASSOCIATE 자격 취득과정</h4>
-                <p class="text-xs text-slate-500">제주RIS</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2024. 02</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">Google AI 강사양성 과정 수료</h4>
-                <p class="text-xs text-slate-500">Google, 제주평생교육장학진흥원, 아이코어이앤씨</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 09 ~ 11</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">메이커스 창작 동아리 활동</h4>
-                <p class="text-xs text-slate-500">제주콘텐츠코리아랩 (레이저조각기 및 CNC 교육)</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2023. 08 ~ 10</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">강사양성 교육 수료</h4>
-                <p class="text-xs text-slate-500">제주평생교육장학진흥원 (일러스트, 레이저조각기, CNC조각기 강사양성 & UV프린터, 커팅플로터 굿즈 제작)</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 10 ~ 11</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">소셜메이커스 3기 수료</h4>
-                <p class="text-xs text-slate-500">팹랩서울+제주 (3D프린터, 레이저조각기, 아두이노 / 스마트화분 제작)</p>
-              </div>
-            </div>
-            <!-- Training Item -->
-            <div class="flex gap-3">
-              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2021. 08 ~ 10</div>
-              <div>
-                <h4 class="text-sm font-bold text-slate-100">제주 AI활용 SW 인력양성 프로젝트 수료</h4>
-                <p class="text-xs text-slate-500">제주평생교육장학진흥원, SKT (알버트 활용 블록코딩 및 플랫폼 서비스 개발)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Wood Work Gallery Section -->
-  <section id="woodwork" class="py-20 bg-darkbg-900/30 border-y border-slate-900">
+  <section id="woodwork" class="py-20 bg-darkbg-950 border-t border-slate-900">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">🪑 Wood Work (목공 설계 및 제작)</h2>
         <p class="mt-4 text-lg text-slate-400">직접 도면 설계부터 제작, 시제품 개발, 가구 제작 및 납품까지 진행한 목공 아카이브입니다.</p>
       </div>
 
-      <!-- Woodwork List -->
+      <!-- Woodwork List (3x3 Grid of 9 Premium Projects) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Project 1 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-sheet-plastic"></i>
+        <!-- Project 1 (Photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-signboard.jpg" alt="베이스우드 간판 제작" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><path d=\'M90 60 L230 60 L230 120 L90 120 Z\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><text x=\'160\' y=\'96\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Bass Wood Signboard</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Bass Wood Signboard</span>
           <h4 class="font-bold text-white mt-2.5">베이스우드 간판 제작</h4>
           <p class="text-xs text-slate-500 mt-1">2025. 09 | 설계 및 자체 제작 / 개인 소장</p>
         </div>
 
-        <!-- Project 2 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-box-open"></i>
+        <!-- Project 2 (Photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-cajon.jpg" alt="니 카혼 DIY 키트" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'110\' y=\'40\' width=\'100\' height=\'100\' rx=\'6\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><circle cx=\'160\' cy=\'90\' r=\'15\' fill=\'%23111827\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Knee Cajon DIY Kit</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Knee Cajon DIY Kit</span>
           <h4 class="font-bold text-white mt-2.5">니 카혼 DIY 키트</h4>
           <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 / 관공서·기관 대량 납품</p>
         </div>
 
-        <!-- Project 3 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-drum"></i>
+        <!-- Project 3 (Photo) - PROMOTED -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-bookshelf.jpg" alt="회전형 책장 및 보관함" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'130\' y=\'30\' width=\'60\' height=\'110\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'130\' y1=\'65\' x2=\'190\' y2=\'65\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><line x1=\'130\' y1=\'100\' x2=\'190\' y2=\'100\' stroke=\'%23d97706\' stroke-width=\'1.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Rotating Bookshelf</text></svg>';">
           </div>
-          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Maracas DIY Kit</span>
-          <h4 class="font-bold text-white mt-2.5">마라카스 악기 DIY 키트</h4>
-          <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 / 납품</p>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Rotating Bookshelf</span>
+          <h4 class="font-bold text-white mt-2.5">회전형 단행본 & 잡지 보관함 책장</h4>
+          <p class="text-xs text-slate-500 mt-1">2023. 02 | 회전 구동 메커니즘 3D 공간 설계 및 제작</p>
         </div>
 
-        <!-- Project 4 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-cubes"></i>
+        <!-- Project 4 (Photo) - PROMOTED -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-desk.jpg" alt="슬림 데스크" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'80\' y=\'60\' width=\'160\' height=\'12\' rx=\'2\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'72\' x2=\'90\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'220\' y1=\'72\' x2=\'230\' y2=\'130\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Slim Desk</text></svg>';">
           </div>
-          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Emotional Wood Block</span>
-          <h4 class="font-bold text-white mt-2.5">감성 우드 블록 세트</h4>
-          <p class="text-xs text-slate-500 mt-1">2024. 02 | 3D 모델링 설계 및 정밀 가공 시제품 제작</p>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Slim Desk</span>
+          <h4 class="font-bold text-white mt-2.5">1인 가구용 슬림 데스크 (Slim Desk)</h4>
+          <p class="text-xs text-slate-500 mt-1">2022. 12 | 하중 분산 하드웨어 조인트 및 가구 설계</p>
         </div>
 
-        <!-- Project 5 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-table"></i>
+        <!-- Project 5 (Photo) - PROMOTED -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-footrest.jpg" alt="발 받침대" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><polygon points=\'100,105 220,75 230,95 110,125\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'110\' y1=\'115\' x2=\'110\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'215\' y1=\'90\' x2=\'215\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'155\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Ergonomic Footrest</text></svg>';">
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Ergonomic Footrest</span>
+          <h4 class="font-bold text-white mt-2.5">인체공학 각도 조절형 발 받침대</h4>
+          <p class="text-xs text-slate-500 mt-1">2023. 03 | 피로 분산 경사면 인체공학 관절 설계 제작</p>
+        </div>
+
+        <!-- Project 6 (Photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-table.jpg" alt="언밸런스 업사이클링 티 테이블" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><ellipse cx=\'160\' cy=\'80\' rx=\'65\' ry=\'20\' fill=\'%2378350f\' stroke=\'%23d97706\' stroke-width=\'2\'/><line x1=\'120\' y1=\'95\' x2=\'100\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'200\' y1=\'95\' x2=\'220\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><line x1=\'160\' y1=\'100\' x2=\'160\' y2=\'145\' stroke=\'%23d97706\' stroke-width=\'2.5\'/><text x=\'160\' y=\'165\' font-family=\'sans-serif\' font-size=\'11\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Unbalance Tea Table</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Unbalance Tea Table</span>
           <h4 class="font-bold text-white mt-2.5">언밸런스 업사이클링 티 테이블</h4>
           <p class="text-xs text-slate-500 mt-1">2023. 11 | 버려지는 가구재 업사이클링 설계 및 납품</p>
         </div>
 
-        <!-- Project 6 -->
-        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-slate-700 hover:shadow-lg transition">
-          <div class="aspect-video bg-amber-500/10 rounded-xl flex items-center justify-center mb-4 text-amber-400 text-3xl border border-amber-500/20">
-            <i class="fa-solid fa-store"></i>
+        <!-- Project 7 (Photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 p-5 hover:border-brand-500/30 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-amber-500/5 rounded-xl overflow-hidden mb-4 border border-slate-800 relative">
+            <img src="woodwork-walnut.jpg" alt="월넛 돌출형 간판" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 320 180\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><rect x=\'120\' y=\'45\' width=\'80\' height=\'100\' rx=\'4\' stroke=\'%23d97706\' stroke-width=\'2\' fill=\'%2378350f\'/><line x1=\'100\' y1=\'60\' x2=\'120\' y2=\'60\' stroke=\'%239ca3af\' stroke-width=\'3\'/><line x1=\'100\' y1=\'120\' x2=\'120\' y2=\'120\' stroke=\'%239ca3af\' stroke-width=\'3\'/><rect x=\'100\' y=\'45\' width=\'10\' height=\'100\' fill=\'%234b5563\'/><text x=\'160\' y=\'160\' font-family=\'sans-serif\' font-size=\'10\' fill=\'%23ffffff\' font-weight=\'bold\' text-anchor=\'middle\'>Walnut Side Signboard</text></svg>';">
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Walnut Side Signboard</span>
           <h4 class="font-bold text-white mt-2.5">월넛(호두나무) 돌출형 간판</h4>
           <p class="text-xs text-slate-500 mt-1">2023. 09 | 고급 특수목 정밀 각인 설계 및 납품</p>
         </div>
+
+        <!-- Project 8 (Blueprint-CAD style: No photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
+            <!-- Customized Technical Drawing SVG demonstrating CAD Expertise -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
+              <circle cx="100" cy="80" r="24" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3 1.5" fill="none"/>
+              <circle cx="100" cy="80" r="21" stroke="#0ea5e9" stroke-width="1" fill="none"/>
+              <path d="M100 104 L100 145" stroke="#38bdf8" stroke-width="1.8"/>
+              <circle cx="220" cy="80" r="24" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3 1.5" fill="none"/>
+              <circle cx="220" cy="80" r="21" stroke="#0ea5e9" stroke-width="1" fill="none"/>
+              <path d="M220 104 L220 145" stroke="#38bdf8" stroke-width="1.8"/>
+              <line x1="68" y1="80" x2="132" y2="80" stroke="#f43f5e" stroke-width="0.8"/>
+              <text x="135" y="83" font-family="monospace" font-size="8" fill="#f43f5e">Ø 48</text>
+              <line x1="100" y1="145" x2="150" y2="145" stroke="#10b981" stroke-width="0.8"/>
+              <text x="154" y="148" font-family="monospace" font-size="8" fill="#10b981">H 135</text>
+              <text x="160" y="24" font-family="monospace" font-size="8.5" fill="#64748b" text-anchor="middle">ONSHAPE / 3D CAD MODELING</text>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">3D CAD Blueprint Only</span>
+          <h4 class="font-bold text-white mt-2.5">마라카스 악기 DIY 키트</h4>
+          <p class="text-xs text-slate-500 mt-1">2025. 06 | 자체 설계 및 제작 도면 보유 / 납품</p>
+        </div>
+
+        <!-- Project 9 (Blueprint-CAD style: No photo) -->
+        <div class="bg-slate-900/40 rounded-2xl border border-blue-500/30 p-5 hover:border-blue-400/50 hover:shadow-lg transition duration-300">
+          <div class="aspect-video bg-slate-950 rounded-xl overflow-hidden mb-4 border border-blue-950 relative">
+            <!-- Customized Technical Drawing SVG demonstrating CAD Expertise -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" class="w-full h-full bg-slate-950 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:16px_16px]">
+              <polygon points="70,120 105,60 140,120" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+              <rect x="160" y="70" width="45" height="45" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+              <circle cx="255" cy="95" r="22" stroke="#38bdf8" stroke-width="1.2" fill="none"/>
+              <text x="160" y="24" font-family="monospace" font-size="8.5" fill="#64748b" text-anchor="middle">FUSION 360 / 3D CAD MODELING</text>
+              <line x1="160" y1="125" x2="205" y2="125" stroke="#f43f5e" stroke-width="0.8"/>
+              <text x="182" y="137" font-family="monospace" font-size="8" fill="#f43f5e" text-anchor="middle">W 45</text>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">3D CAD Blueprint Only</span>
+          <h4 class="font-bold text-white mt-2.5">감성 우드 블록 세트</h4>
+          <p class="text-xs text-slate-500 mt-1">2024. 02 | 3D 모델링 설계 및 정밀 가공 시제품 제작</p>
+        </div>
+
       </div>
 
       <!-- Compact Timeline of past designs -->
@@ -922,19 +1030,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-slate-400">
           <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
             <span class="font-semibold text-brand-400">2023.03</span>
-            <span>발 받침대(Footrest) 자체 설계 및 소장</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-brand-400">2023.03</span>
             <span>오픈형 책장 및 상판 설계 / 공공장소 기증</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-brand-400">2023.02</span>
-            <span>회전형 단행본 & 잡지 보관함 제작</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
-            <span class="font-semibold text-slate-500">2022.12</span>
-            <span>1인 가구용 슬림 데스크 (Slim Desk)</span>
           </div>
           <div class="flex items-center gap-3 bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/40">
             <span class="font-semibold text-slate-500">2022.10</span>
@@ -990,8 +1086,76 @@
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
-  <div id="toast-container" class="fixed bottom-5 left-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+  <!-- Detailed Lecture Modal (Dynamically Generated Slider & Spec Sheets) -->
+  <div id="lecture-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkbg-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col">
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-800 flex justify-between items-start sticky top-0 bg-slate-900 z-10">
+        <div>
+          <span id="modal-tag" class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">강의 이력</span>
+          <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white mt-2">강의명 위치</h3>
+          <p id="modal-subtitle" class="text-sm text-brand-400/80 font-medium mt-1">소속 기관 위치</p>
+        </div>
+        <button id="modal-close-btn" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition" aria-label="닫기">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-8 flex-1">
+        <!-- Photo Slide Gallery (4 Images) -->
+        <div class="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group">
+          <img id="modal-slider-img" src="" alt="강의 현장 사진" class="w-full h-full object-cover transition-all duration-300">
+          
+          <!-- Slider Controls -->
+          <button id="slider-prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-slate-900/60 text-white rounded-xl hover:bg-brand-500 transition opacity-0 group-hover:opacity-100 focus:opacity-100">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="slider-next" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-slate-900/60 text-white rounded-xl hover:bg-brand-500 transition opacity-0 group-hover:opacity-100 focus:opacity-100">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Slider Indicators -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" id="slider-indicators">
+            <button class="w-2 h-2 rounded-full bg-white transition-all" data-slide="0"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all" data-slide="1"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all" data-slide="2"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all" data-slide="3"></button>
+          </div>
+        </div>
+
+        <!-- Spec Sheets & Description -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Left Spec Sheet Table -->
+          <div class="md:col-span-1 bg-slate-950/50 border border-slate-800/80 rounded-2xl p-5 space-y-4 text-xs">
+            <h5 class="text-sm font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+              <i class="fa-solid fa-circle-info text-brand-400"></i> 강의 스펙 정보
+            </h5>
+            <div>
+              <span class="text-slate-500 block font-semibold mb-1">🎯 교육 대상</span>
+              <p id="modal-spec-target" class="text-slate-200 font-bold leading-relaxed">준비 중</p>
+            </div>
+            <div>
+              <span class="text-slate-500 block font-semibold mb-1">📍 강의 장소</span>
+              <p id="modal-spec-location" class="text-slate-200 font-bold leading-relaxed">준비 중</p>
+            </div>
+            <div>
+              <span class="text-slate-500 block font-semibold mb-1">🕒 강의 시기 / 시간</span>
+              <p id="modal-spec-time" class="text-slate-200 font-bold leading-relaxed">준비 중</p>
+            </div>
+          </div>
+
+          <!-- Right Comprehensive Description -->
+          <div class="md:col-span-2 space-y-4">
+            <h5 class="text-sm font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+              <i class="fa-solid fa-feather-pointed text-brand-400"></i> 상세 강의 설명
+            </h5>
+            <p id="modal-spec-description" class="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap">준비 중</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Back to Top Floating Button -->
   <button id="back-to-top" class="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/20 translate-y-20 opacity-0 transition-all duration-300 focus:outline-none" aria-label="맨 위로 이동">
@@ -1029,7 +1193,7 @@
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           navLinks.forEach(link => {
-            link.classList.remove('text-brand-400', 'border-b-2', 'border-brand-400');
+            link.classList.remove('text-brand-400');
             if (link.getAttribute('href') === `#${id}`) {
               link.classList.add('text-brand-400');
             }
@@ -1101,9 +1265,8 @@
       });
     });
 
-    // 6. AI 강좌 진단 시스템 (CORS 우회 & 완벽 예외 처리 및 로컬 가동 지원)
-    // ⚠️ [구현 필수]: Code.gs를 웹앱 배포하신 후 아래 빈 문자열 부분에 웹앱 URL을 입력하시면 완전한 구글 Gemini API 분석이 수행됩니다.
-    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbwh3X6kifRvzhS-aJKnZQc-2vKUK7XPjDT3IdV6kVMDQIcO0xMNNK07BmKjeU5DJN0jeg/exec"; 
+    // 5. AI 강좌 진단 시스템 (CORS 우회 및 로컬 하이브리드 가동 지원)
+    const GAS_API_URL = ""; 
 
     const analyzeBtn = document.getElementById('analyze-btn');
     const placeholderResult = document.getElementById('placeholder-result');
@@ -1118,7 +1281,7 @@
     const resultFeedback = document.getElementById('result-feedback');
     const matchingSourceBadge = document.getElementById('matching-source-badge');
 
-    // 클라이언트 브라우저 측 스마트 로컬 폴백 매칭 지식 베이스
+    // 클라이언트 스마트 폴백 데이터베이스
     const localSkillDB = [
       { keys: ['아두이노', 'arduino', '피지컬', '센서', '회로', '스피커', '임베디드', '로봇', '드론'], score: 98, title: '아두이노 기반 피지컬 메이커 창의 교실', hours: 12, fb: '전기공학 전공 및 로봇시스템 엔지니어링 경력을 완벽하게 녹여낸 명쾌한 물리 컴퓨팅 교육을 선사합니다.' },
       { keys: ['앱시트', 'appsheet', '노코드', 'nocode', '앱 개발', '앱만들기'], score: 99, title: 'AppSheet로 구현하는 나만의 스마트 업무 앱 개발', hours: 8, fb: '구글 공인 에듀케이터 Level 2의 풍부한 교육 경험을 바탕으로, 코딩 없이 실제 구동 가능한 나만의 비즈니스 앱을 안정적으로 완성합니다.' },
@@ -1133,23 +1296,21 @@
       const rawName = document.getElementById('course-name').value.trim();
 
       if (!rawName) {
-        showToast('희망하시는 강좌 분야 또는 핵심 키워드를 입력해 주세요!', 'error');
+        alert('희망하시는 강좌 분야 또는 핵심 키워드를 입력해 주세요!');
         return;
       }
 
-      // UI 로딩 상태 전환
       placeholderResult.classList.add('hidden');
       analysisResult.classList.add('hidden');
       analyzerLoader.classList.remove('hidden');
       analyzeBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> 분석 중...`;
       analyzeBtn.disabled = true;
 
-      // 만약 GAS_API_URL이 설정되어 있다면 클라우드 백엔드로 요청 전송
       if (GAS_API_URL && GAS_API_URL.trim() !== "") {
         fetch(GAS_API_URL, {
           method: 'POST',
           headers: {
-            'Content-Type': 'text/plain' // 구글 앱스 스크립트 특유의 CORS 사전 점검(OPTIONS) 문제 완화를 위해 text/plain 사용
+            'Content-Type': 'text/plain'
           },
           body: JSON.stringify({
             target: target,
@@ -1160,21 +1321,18 @@
         .then(res => res.json())
         .then(data => {
           updateUI(data, hours, "AI Real-time Matching (Cloud)");
-          showToast('성공적으로 실시간 AI 분석 결과를 도출했습니다!', 'success');
         })
         .catch(err => {
-          console.warn("GAS 연결 중 오류 발생, 신속하게 로컬 스마트 엔진으로 전환합니다:", err);
+          console.warn("GAS 통신 에러, 즉각 로컬 엔진으로 폴백 실행합니다.", err);
           runLocalAnalysis(target, hours, rawName, "Local Hybrid Engine (Fallback)");
         });
       } else {
-        // GAS URL이 등록되지 않은 경우 즉시 오프라인 로컬 분석기 실행 (딜레이를 주어 부드러운 로딩 연출)
         setTimeout(() => {
-          runLocalAnalysis(target, hours, rawName, "Local Engine (GAS URL 미지정 폴백)");
+          runLocalAnalysis(target, hours, rawName, "Local Smart Matching Engine");
         }, 1000);
       }
     });
 
-    // 로컬 매칭 분석 수행 함수
     function runLocalAnalysis(target, hours, courseName, sourceText) {
       let bestMatch = null;
       let maxMatchCount = 0;
@@ -1200,10 +1358,10 @@
 
         if (hours < bestMatch.hours) {
           recommendedHoursStr = `${bestMatch.hours}시간 권장`;
-          feedbackStr = `${bestMatch.fb} 설계하신 강의 차시(${hours}차시) 대비, 실습 품질 향상을 위한 ${bestMatch.hours}시간으로의 조정을 적극 추천합니다.`;
+          feedbackStr = `${bestMatch.fb} 설계하신 강의 차시(${hours}차시) 대비, 깊이 있는 실습 품질 향상을 위해 ${bestMatch.hours}시간으로의 상향 조정을 제안합니다.`;
         } else {
           recommendedHoursStr = `${hours}시간 (최적 시수)`;
-          feedbackStr = `${bestMatch.fb} 제안해주신 ${hours}시간은 이론 강의와 포트폴리오를 완벽하게 제작하기에 매우 안정적이고 밀도 높은 이상적인 일정입니다.`;
+          feedbackStr = `${bestMatch.fb} 제안해주신 ${hours}시간은 이론 수강과 개인별 맞춤 결과물을 설계하기에 적정하고 몰입도 높은 스케줄링입니다.`;
         }
 
         responseData = {
@@ -1213,50 +1371,158 @@
           feedback: feedbackStr
         };
       } else {
-        // 일치하는 특정 키워드가 없는 경우 (포괄적 융합 및 에듀테크)
         responseData = {
           score: 80,
-          recommendTitle: `[${target} 특강] 디지털 툴과 피지컬 메이커 창의 교육`,
+          recommendTitle: `[${target} 특강] 융합 메이커스 & 디지털 소통 클래스`,
           recommendedHours: `${hours}시간`,
-          feedback: "강사님의 전기, 컴퓨터, SW 및 설계 다각적 필드 경험을 접목하여 요청하신 분야를 크로스오버 융합 특강 형태로 훌륭하게 설계할 수 있습니다. 자세한 상세 맞춤 커리큘럼은 하단 연락처로 문의주시면 실전에 밀착된 구조로 설계해 드립니다!"
+          feedback: "강사님의 전기, 컴퓨터, 메이커 융합 실무 역량을 조합하여 해당 강의 명세서에 밀착 가공된 최선의 맞춤 커리큘럼을 실현해 드릴 수 있습니다."
         };
       }
 
       updateUI(responseData, hours, sourceText);
-      showToast('강사 프로필 분석 매칭 기반 분석 보고서를 완료했습니다.', 'success');
     }
 
-    // UI 업데이트 처리 공통 함수
     function updateUI(data, requestedHours, sourceText) {
       analyzerLoader.classList.add('hidden');
       analysisResult.classList.remove('hidden');
 
-      // 점수 및 상태 바 반영
       resultScore.innerText = `${data.score}%`;
       resultProgress.style.width = `${data.score}%`;
-      
-      // 추천 강좌명, 시수, 피드백 정보 반영
       resultTitle.innerText = data.recommendTitle;
       requestedHoursText.innerText = `${requestedHours}시간`;
       recommendedHoursText.innerText = data.recommendedHours;
       resultFeedback.innerText = data.feedback;
 
-      // 점수에 따른 포인트 색상 변경
       if (data.score >= 90) {
-        resultScore.className = "text-2xl font-black text-brand-400 animate-pulse";
+        resultScore.className = "text-2xl font-black text-brand-400";
         resultProgress.className = "h-full bg-brand-500 transition-all duration-500";
       } else {
         resultScore.className = "text-2xl font-black text-amber-500";
         resultProgress.className = "h-full bg-amber-500 transition-all duration-500";
       }
 
-      // 데이터 소스 배지 표기
       matchingSourceBadge.innerText = sourceText;
-
-      // 분석하기 버튼 복구
       analyzeBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> AI 강좌 적합도 분석하기`;
       analyzeBtn.disabled = false;
     }
+
+    // 6. Detailed Lecture Modals and Image Slider Logic
+    const lectureModal = document.getElementById('lecture-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTag = document.getElementById('modal-tag');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalSliderImg = document.getElementById('modal-slider-img');
+    const modalSpecTarget = document.getElementById('modal-spec-target');
+    const modalSpecLocation = document.getElementById('modal-spec-location');
+    const modalSpecTime = document.getElementById('modal-spec-time');
+    const modalSpecDescription = document.getElementById('modal-spec-description');
+
+    const sliderPrev = document.getElementById('slider-prev');
+    const sliderNext = document.getElementById('slider-next');
+    const indicatorButtons = document.querySelectorAll('#slider-indicators button');
+
+    let currentLectureId = 1;
+    let currentSlideIdx = 0;
+
+    // Helper: Generate fallback placeholder svg gradients
+    function getFallbackUrl(lectureId, imgIdx) {
+      return `data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 360\' fill=\'none\'><rect width=\'100%\' height=\'100%\' fill=\'%23111827\'/><defs><linearGradient id=\'g\' x1=\'0%\' y1=\'0%\' x2=\'100%\' y2=\'100%\'><stop offset=\'0%\' stop-color=\'%23075985\'/><stop offset=\'100%\' stop-color=\'%230f172a\'/></linearGradient></defs><rect width=\'100%\' height=\'100%\' fill=\'url(%23g)\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%2338bdf8\' text-anchor=\'middle\'>현장 사진 준비 중 (lecture-${lectureId}-${imgIdx}.jpg)</text></svg>`;
+    }
+
+    function updateSliderImage() {
+      const imgPath = `lecture-${currentLectureId}-${currentSlideIdx + 1}.jpg`;
+      modalSliderImg.src = imgPath;
+      
+      // Setup onerror to use customized SVG gradient
+      modalSliderImg.onerror = function() {
+        this.onerror = null;
+        this.src = getFallbackUrl(currentLectureId, currentSlideIdx + 1);
+      };
+
+      // Indicators styles update
+      indicatorButtons.forEach((btn, idx) => {
+        if (idx === currentSlideIdx) {
+          btn.className = "w-4 h-2 rounded-full bg-brand-400 transition-all";
+        } else {
+          btn.className = "w-2 h-2 rounded-full bg-white/40 transition-all";
+        }
+      });
+    }
+
+    // Open Modal and Populate
+    lectureCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-id');
+        const target = card.getAttribute('data-target');
+        const location = card.getAttribute('data-location');
+        const time = card.getAttribute('data-time');
+        const desc = card.getAttribute('data-description');
+        
+        const cardTag = card.querySelector('.lecture-card span').innerText;
+        const cardTitle = card.querySelector('.lecture-card h4').innerText;
+        const cardSubtitle = card.querySelector('.lecture-card p').innerText;
+
+        currentLectureId = id;
+        currentSlideIdx = 0;
+
+        // Apply fields
+        modalTag.innerText = cardTag;
+        modalTitle.innerText = cardTitle;
+        modalSubtitle.innerText = cardSubtitle;
+        modalSpecTarget.innerText = target;
+        modalSpecLocation.innerText = location;
+        modalSpecTime.innerText = time;
+        modalSpecDescription.innerText = desc;
+
+        // Initialize Slider
+        updateSliderImage();
+
+        // Reveal Modal Animation
+        lectureModal.classList.remove('hidden');
+        setTimeout(() => {
+          lectureModal.classList.remove('opacity-0');
+        }, 50);
+        document.body.style.overflow = 'hidden'; // block page scrolling
+      });
+    });
+
+    // Close Modal Function
+    function closeModal() {
+      lectureModal.classList.add('opacity-0');
+      setTimeout(() => {
+        lectureModal.classList.add('hidden');
+      }, 300);
+      document.body.style.overflow = 'auto'; // restore scroll
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    lectureModal.addEventListener('click', (e) => {
+      if (e.target === lectureModal) {
+        closeModal();
+      }
+    });
+
+    // Slide Controls
+    sliderPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentSlideIdx = (currentSlideIdx === 0) ? 3 : currentSlideIdx - 1;
+      updateSliderImage();
+    });
+
+    sliderNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentSlideIdx = (currentSlideIdx === 3) ? 0 : currentSlideIdx + 1;
+      updateSliderImage();
+    });
+
+    indicatorButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentSlideIdx = parseInt(btn.getAttribute('data-slide'));
+        updateSliderImage();
+      });
+    });
   </script>
 </body>
 </html>
