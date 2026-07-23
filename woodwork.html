@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이강민의 목공 설계, 제작, 시제품 개발 및 납품 프로젝트 아카이브">
+  <title>Wood Work | 이강민 포트폴리오</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['SUITE', 'sans-serif'] },
+          colors: {
+            brand: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7'
+            },
+            darkbg: {
+              950: '#0B0F19',
+              900: '#111827',
+              800: '#1F2937'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/sunn-us/SUITE/fonts/static/woff2/SUITE.css');
+    body { font-family: 'SUITE', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0B0F19; }
+    ::-webkit-scrollbar-thumb { background: #1F2937; border-radius: 4px; }
+    .blueprint-grid {
+      background-color: #020617;
+      background-image:
+        linear-gradient(to right, rgba(30, 41, 59, .8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, .8) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .hero-glow {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(217, 119, 6, .12), transparent 38%),
+        radial-gradient(circle at 85% 10%, rgba(14, 165, 233, .12), transparent 35%);
+    }
+  </style>
+</head>
+<body class="bg-darkbg-950 text-slate-300 antialiased selection:bg-brand-500/20 selection:text-brand-400">
+  <nav class="sticky top-0 z-40 bg-darkbg-950/85 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-slate-300 hover:text-white transition">
+        <span class="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-400">
+          <i class="fa-solid fa-arrow-left"></i>
+        </span>
+        <span>
+          <span class="block text-[10px] tracking-[.2em] text-slate-500">PORTFOLIO</span>
+          <span class="block text-sm font-bold">이강민</span>
+        </span>
+      </a>
+      <a href="index.html#about" class="text-sm font-semibold text-slate-400 hover:text-brand-400 transition">
+        메인으로 돌아가기
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero-glow border-b border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400">
+          <i class="fa-solid fa-ruler-combined"></i>
+          WOOD WORK ARCHIVE
+        </span>
+        <h1 class="mt-5 text-4xl sm:text-6xl font-black tracking-tight text-white">
+          목공 설계에서<br class="hidden sm:block"> 완성품까지
+        </h1>
+        <p class="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-400">
+          직접 도면을 설계하고 제작한 가구, 교육용 DIY 키트, 악기와 시제품을 모았습니다.
+          사진 작품과 3D CAD 설계안을 클릭하면 제작 배경과 상세 내용을 볼 수 있습니다.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-2" id="filters">
+          <button data-filter="all" class="filter-btn rounded-full bg-brand-600 border border-brand-500 px-4 py-2 text-xs font-bold text-white">전체 13</button>
+          <button data-filter="photo" class="filter-btn rounded-full bg-slate-900 border border-slate-800 px-4 py-2 text-xs font-bold text-slate-400 hover:border-amber-500/40">제작 작품 8</button>
+          <button data-filter="blueprint" class="filter-btn rounded-full bg-slate-900 border border-slate-800 px-4 py-2 text-xs font-bold text-slate-400 hover:border-blue-500/40">설계 도면 5</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <section class="border-t border-slate-900 bg-darkbg-900/30">
+    <div class="max-w-4xl mx-auto px-4 py-14 text-center">
+      <h2 class="text-2xl font-bold text-white">목공 설계·제작 문의</h2>
+      <p class="mt-3 text-sm text-slate-400">교육용 키트, 시제품, 가구 및 가공 제품 제작 상담을 환영합니다.</p>
+      <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3">
+        <a href="tel:010-4127-6544" class="px-6 py-3 bg-white text-darkbg-950 rounded-xl font-bold hover:bg-slate-100 transition">
+          <i class="fa-solid fa-phone mr-2"></i>전화 상담
+        </a>
+        <a href="mailto:plipper325@naver.com" class="px-6 py-3 bg-brand-600 text-white rounded-xl font-bold hover:bg-brand-500 transition">
+          <i class="fa-solid fa-envelope mr-2"></i>이메일 문의
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-600">
+    &copy; 2026 이강민. All rights reserved.
+  </footer>
+
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-200 bg-darkbg-950/85 backdrop-blur-md p-4 items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
+      <button id="modal-close" class="absolute right-4 top-4 z-20 h-10 w-10 rounded-xl bg-slate-950/70 text-slate-400 hover:text-white" aria-label="상세 보기 닫기">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="grid md:grid-cols-12">
+        <div id="modal-media" class="md:col-span-7 min-h-72 md:min-h-[520px] bg-slate-950 flex items-center justify-center overflow-hidden"></div>
+        <div class="md:col-span-5 p-7 sm:p-9 flex flex-col justify-between">
+          <div>
+            <span id="modal-tag" class="inline-flex rounded-md border px-2.5 py-1 text-[10px] font-bold"></span>
+            <h2 id="modal-title" class="mt-4 text-2xl font-bold text-white"></h2>
+            <p id="modal-subtitle" class="mt-2 text-xs leading-relaxed text-slate-500"></p>
+            <p id="modal-description" class="mt-7 text-sm leading-7 text-slate-300"></p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-800 text-[11px] text-slate-500">
+            <i class="fa-solid fa-compass-drafting mr-2 text-brand-400"></i>3D CAD 설계 및 제작 공학 기법 적용
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-30 h-12 w-12 rounded-xl bg-brand-600 text-white shadow-lg opacity-0 translate-y-16 transition-all" aria-label="맨 위로 이동">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const projects = [
+      {
+        title: '베이스우드 간판 제작',
+        subtitle: '2025. 09 | 설계 및 제작 / 납품',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-signboard.jpg',
+        label: 'Bass Wood Signboard',
+        description: '온쉐이프(OnShape)를 사용하여 간판의 세밀한 목재 가공 여백과 로고 각인 위치를 3D 공간 시뮬레이션한 후 자체 보유한 정밀 레이저 장비로 섬세하게 가공을 진행했습니다. 특수 천연 왁스 마감 처리를 통해 가벼우면서도 자연스러운 나무결이 영구 보존되도록 개발했습니다.'
+      },
+      {
+        title: '무릎 카혼 DIY 키트',
+        subtitle: '2025. 06 | 설계 및 제작 / 납품',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-cajon.jpg',
+        label: 'Knee Cajon DIY Kit',
+        description: '카혼 타악기의 구조적 울림통 원리를 공학적으로 분석하여 누구나 쉽게 조립할 수 있는 스냅핏 조인트 구조로 설계했습니다. 학교 현장 및 기관 대량 납품에 성공하며 타격 지점과 목재 조인트의 기밀성을 정밀하게 조정한 조립 키트 모델입니다.'
+      },
+      {
+        title: '회전형 북쉘프',
+        subtitle: '2023. 02 | 설계 및 제작',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-bookshelf.jpg',
+        label: 'Rotating Bookshelf',
+        description: '내부 무게 균형과 저마찰 볼베어링 기반의 회전 구조를 OnShape로 3D 시뮬레이션 설계한 기능성 가구입니다. 책과 미디어를 다량 수납해도 부드럽게 회전하도록 조인트 가공 정밀도를 높였습니다.'
+      },
+      {
+        title: '슬림 데스크 (Slim Desk)',
+        subtitle: '2022. 12 | 설계 및 제작',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-desk.jpg',
+        label: 'Slim Desk',
+        description: '미니멀한 주거 공간에 최적화된 슬림 테이블입니다. 다리와 상판이 체결되는 전단 하중점을 Fusion 360으로 시뮬레이션하여 얇지만 흔들림 없이 수평 응력을 견디도록 설계했습니다.'
+      },
+      {
+        title: '인체공학 각도 조절형 발 받침대',
+        subtitle: '2023. 03 | 피로 분산 경사면 인체공학 관절 설계 제작',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-footrest.jpg',
+        label: 'Ergonomic Footrest',
+        description: '사무 환경에서 다리의 피로도를 분산시키는 다각도 전용 관절 받침대입니다. 각도 회전 축의 마찰 고정 힌지와 미끄럼 방지 그루브를 3D CAD로 모델링해 관공서에 시제품으로 납품했습니다.'
+      },
+      {
+        title: '언밸런스 업사이클링 티 테이블',
+        subtitle: '2023. 11 | 목재 업사이클링 설계 및 제작 / 납품',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-table.jpg',
+        label: 'Unbalance Tea Table',
+        description: '소장 목재의 깎여나간 모서리와 원재료의 형태를 살려 한쪽 다리를 의도적으로 노출하고, 상판과 다리를 플로팅하는 방식으로 설계했습니다. 다리는 버려지는 목재 팔레트를 활용했습니다.'
+      },
+      {
+        title: '월넛 돌출형 간판',
+        subtitle: '2023. 09 | 고급 특수목 정밀 각인 설계 및 납품',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-walnut.jpg',
+        label: 'Walnut Side Signboard',
+        description: '호두나무 특수목의 짙은 가공면을 정밀한 레이저 출력 조정으로 불필요한 그을음 없이 깊게 각인했습니다. 내습성과 목재 고유의 중후함을 살린 브랜드 맞춤 돌출 프레임입니다.'
+      },
+      {
+        title: '오픈형 책장 및 상판 설계',
+        subtitle: '2023. 03 | 모서리 곡률 설계 및 안전 프레임 빌드 / 개인 소장',
+        type: 'photo',
+        image: 'image/woodwork/woodwork-open-bookshelf.jpg',
+        label: 'Open Bookshelf',
+        description: '공간박스형 책장의 앞쪽 모서리를 45도로 가공해 사용자 안전성을 높였으며, 연결부 역시 45도로 가공 후 조립하여 심미성을 높였습니다.'
+      },
+      {
+        title: '마라카스 악기 DIY 키트',
+        subtitle: '2025. 06 | 자체 설계 및 제작 / 납품',
+        type: 'blueprint',
+        icon: 'fa-drum',
+        label: '3D CAD Blueprint',
+        description: '조립형 마라카스를 체험 수업에 활용할 수 있도록 각 조립부와 손잡이, 내부 내용물, 연결 나사 및 공구를 포함한 키트로 구성했습니다.'
+      },
+      {
+        title: '우드 블록 세트',
+        subtitle: '2024. 02 | 설계 및 제작 / 개발 중',
+        type: 'blueprint',
+        icon: 'fa-shapes',
+        label: '3D CAD Blueprint',
+        description: '나무 본연의 촉감과 기하학적 도형 감각을 조화롭게 키우도록 설계한 유아 교육용 입체 블록 세트입니다.'
+      },
+      {
+        title: '오션드럼 (Ocean Drum) 설계',
+        subtitle: '2022. 10 | 진동 및 사물 음향 시뮬레이션 기반 드럼 하우징',
+        type: 'blueprint',
+        icon: 'fa-record-vinyl',
+        label: '3D CAD Blueprint',
+        description: '투명 아크릴 전면부와 천연 원목 프레임을 기밀하게 고정하는 실링 조인트 설계안입니다. 내부 금속 비드가 굴러가며 파도 소리를 모사하도록 체적과 구조를 설계했습니다.'
+      },
+      {
+        title: '레인스틱 (Rain Stick) 설계',
+        subtitle: '2022. 10 | 나선형 격막 배치 및 마찰핀 3D 모델링 설계',
+        type: 'blueprint',
+        icon: 'fa-cloud-rain',
+        label: '3D CAD Blueprint',
+        description: '길쭉한 구조체 내부의 나선형 격막과 마찰핀 위치를 가시화한 설계안입니다. 내부 미디어가 낙하하며 발생시키는 시간차 소음 제어 메커니즘을 3D 도면에 매핑했습니다.'
+      },
+      {
+        title: '피아노 칼림바 하우징 설계',
+        subtitle: '2021. 10 | 음향 공명 및 플레이트 유격 제정 모델',
+        type: 'blueprint',
+        icon: 'fa-music',
+        label: '3D CAD Blueprint',
+        description: '칼림바의 공명 주파수 특성을 고려해 하우징 벽면 두께와 가공 테이퍼각을 OnShape에서 최적화한 설계안입니다. 금속 건반 지지 플레이트가 하우징과 유격 없이 결합되도록 계산했습니다.'
+      }
+    ];
+
+    const gallery = document.getElementById('gallery');
+    const modal = document.getElementById('detail-modal');
+    const modalMedia = document.getElementById('modal-media');
+    const modalTag = document.getElementById('modal-tag');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalDescription = document.getElementById('modal-description');
+
+    function mediaMarkup(project, modalView = false) {
+      if (project.type === 'photo') {
+        return `
+          <div class="absolute inset-0 bg-cover bg-center blur-xl opacity-30 scale-110" style="background-image:url('${project.image}')"></div>
+          <img src="${project.image}" alt="${project.title}" class="relative z-10 ${modalView ? 'max-h-[70vh]' : 'max-h-full'} max-w-full object-contain" loading="lazy">
+        `;
+      }
+      return `
+        <div class="blueprint-grid absolute inset-0"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center text-blue-400">
+          <i class="fa-solid ${project.icon} ${modalView ? 'text-8xl' : 'text-6xl'}"></i>
+          <div class="mt-5 font-mono text-[10px] tracking-[.25em] text-slate-500">3D CAD / TECHNICAL DRAWING</div>
+          <div class="mt-4 h-px w-28 bg-blue-400/50 relative before:absolute before:-top-1 before:left-0 before:h-2 before:w-px before:bg-rose-400 after:absolute after:-top-1 after:right-0 after:h-2 after:w-px after:bg-rose-400"></div>
+        </div>
+      `;
+    }
+
+    function render(filter = 'all') {
+      const visible = filter === 'all' ? projects : projects.filter(project => project.type === filter);
+      gallery.innerHTML = visible.map(project => `
+        <button type="button" class="project-card group text-left rounded-2xl border ${project.type === 'photo' ? 'border-slate-800/80' : 'border-blue-500/25'} bg-slate-900/40 p-5 hover:-translate-y-1 hover:border-brand-500/50 hover:shadow-xl transition-all" data-index="${projects.indexOf(project)}">
+          <div class="relative aspect-video overflow-hidden rounded-xl border border-slate-800 bg-slate-950 flex items-center justify-center">
+            ${mediaMarkup(project)}
+          </div>
+          <span class="mt-4 inline-flex rounded-md border px-2.5 py-1 text-[10px] font-bold ${project.type === 'photo' ? 'border-amber-500/20 bg-amber-500/10 text-amber-400' : 'border-blue-500/20 bg-blue-500/10 text-blue-400'}">${project.label}</span>
+          <h2 class="mt-3 text-lg font-bold text-white group-hover:text-brand-400 transition">${project.title}</h2>
+          <p class="mt-1 text-xs leading-relaxed text-slate-500">${project.subtitle}</p>
+        </button>
+      `).join('');
+    }
+
+    function openModal(index) {
+      const project = projects[index];
+      modalMedia.innerHTML = mediaMarkup(project, true);
+      modalTag.textContent = project.type === 'photo' ? 'WOOD WORK · PHOTO' : '3D CAD · BLUEPRINT';
+      modalTag.className = `inline-flex rounded-md border px-2.5 py-1 text-[10px] font-bold ${project.type === 'photo' ? 'border-amber-500/20 bg-amber-500/10 text-amber-400' : 'border-blue-500/20 bg-blue-500/10 text-blue-400'}`;
+      modalTitle.textContent = project.title;
+      modalSubtitle.textContent = project.subtitle;
+      modalDescription.textContent = project.description;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      requestAnimationFrame(() => modal.classList.remove('opacity-0'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('opacity-0');
+      window.setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    document.getElementById('filters').addEventListener('click', event => {
+      const button = event.target.closest('.filter-btn');
+      if (!button) return;
+      document.querySelectorAll('.filter-btn').forEach(item => {
+        item.className = 'filter-btn rounded-full bg-slate-900 border border-slate-800 px-4 py-2 text-xs font-bold text-slate-400 hover:border-brand-500/40';
+      });
+      button.className = 'filter-btn rounded-full bg-brand-600 border border-brand-500 px-4 py-2 text-xs font-bold text-white';
+      render(button.dataset.filter);
+    });
+
+    gallery.addEventListener('click', event => {
+      const card = event.target.closest('.project-card');
+      if (card) openModal(Number(card.dataset.index));
+    });
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('opacity-0', window.scrollY < 400);
+      backToTop.classList.toggle('translate-y-16', window.scrollY < 400);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    render();
+  </script>
+</body>
+</html>

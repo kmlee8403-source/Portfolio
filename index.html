@@ -84,7 +84,7 @@
           <a href="#experience" class="hover:text-brand-400 transition">경력 & 학력</a>
           <a href="#lectures" class="hover:text-brand-400 transition">강의 이력</a>
           <a href="#ai-analyzer" class="hover:text-brand-400 transition">AI 강좌 매칭</a>
-          <a href="#woodwork" class="hover:text-brand-400 transition">Wood Work</a>
+          <a href="woodwork.html" class="hover:text-brand-400 transition">Wood Work</a>
         </div>
         <!-- Mobile Menu Button -->
         <div class="md:hidden">
@@ -101,7 +101,7 @@
       <a href="#experience" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">경력 & 학력</a>
       <a href="#lectures" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">강의 이력</a>
       <a href="#ai-analyzer" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">AI 강좌 매칭</a>
-      <a href="#woodwork" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">Wood Work</a>
+      <a href="woodwork.html" class="block py-2 text-slate-400 hover:text-brand-400 font-medium">Wood Work</a>
     </div>
   </nav>
 
@@ -419,6 +419,27 @@
       <!-- Grid for Lectures (With custom attributes for Dynamic Modals) -->
       <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
+        <!-- Card 13 -->
+        <div class="lecture-card cursor-pointer bg-slate-900/40 border border-brand-500/30 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/60 hover:scale-[1.01] transition-all"
+             data-id="13"
+             data-target="고등학생"
+             data-location="제주도교육청 연계 교육 현장"
+             data-time="2026. 07 ~ 2026. 08"
+             data-description="고등학생을 대상으로 AI 로봇 프로젝트와 Google Antigravity를 연계한 코딩 과정을 진행합니다. 인공지능 도구를 활용해 아이디어를 구체화하고, 로봇 동작을 설계·구현하며 문제 해결 과정을 경험하는 프로젝트형 수업입니다."
+             data-keywords="AI 로봇 Google Antigravity 활용 코딩 고등부 제주도교육청 아이코어이앤씨 바이브코딩 AI 코딩">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold text-brand-400 bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-md">AI & 로봇 코딩</span>
+              <span class="text-sm text-slate-500">2026. 07 ~ 2026. 08</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">AI 로봇 + Google Antigravity 활용 코딩 (고등부)</h4>
+            <p class="text-sm text-brand-400 mb-4 font-medium">제주도교육청, 아이코어이앤씨</p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              AI 로봇과 Google Antigravity를 활용해 아이디어 구상부터 코딩, 동작 구현까지 경험하는 고등부 프로젝트형 수업입니다.
+            </p>
+          </div>
+        </div>
+
         <!-- Card 1 -->
         <div class="lecture-card cursor-pointer bg-slate-900/40 border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/50 hover:scale-[1.01] transition-all" 
              data-id="1"
@@ -691,6 +712,12 @@
           </div>
           
           <div class="space-y-6">
+            <!-- Award 0 -->
+            <div class="border-l-4 border-brand-500 pl-4 py-1">
+              <span class="text-xs font-semibold text-brand-400">운영 / 2026. 07</span>
+              <h4 class="font-bold text-slate-100 text-sm sm:text-base">중급 부트캠프 기초실무트랙</h4>
+              <p class="text-xs text-slate-500 mt-1">제주대학교 AI융합원, 아이코어이앤씨</p>
+            </div>
             <!-- Award 1 -->
             <div class="border-l-4 border-brand-500 pl-4 py-1">
               <span class="text-xs font-semibold text-brand-400">심사위원 / 2026. 07</span>
@@ -893,8 +920,8 @@
     </div>
   </section>
 
-  <!-- Wood Work Gallery Section -->
-  <section id="woodwork" class="py-20 bg-darkbg-950 border-t border-slate-900">
+  <!-- Wood Work Gallery archive: rendered on woodwork.html -->
+  <template id="woodwork-archive">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">🪑 Wood Work (목공 설계 및 제작)</h2>
@@ -1155,7 +1182,7 @@
 
       </div>
     </div>
-  </section>
+  </template>
 
   <!-- Contact Bottom Call-To-Action -->
   <section class="bg-darkbg-950 text-white py-16 relative overflow-hidden border-t border-slate-900">
