@@ -255,10 +255,10 @@
   <!-- Experience & Education & Certifications -->
   <section id="experience" class="py-20 bg-darkbg-950">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:items-start">
         
         <!-- Left: Work Experience -->
-        <div class="lg:col-span-1 space-y-6">
+        <div id="experience-column" class="lg:col-span-1 space-y-6">
           <div class="flex items-center gap-3">
             <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
               <i class="fa-solid fa-briefcase"></i>
@@ -291,7 +291,7 @@
         </div>
 
         <!-- Middle: Education -->
-        <div class="lg:col-span-1 space-y-6">
+        <div id="education-column" class="lg:col-span-1 space-y-6">
           <div class="flex items-center gap-3">
             <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
               <i class="fa-solid fa-graduation-cap"></i>
@@ -331,15 +331,23 @@
         </div>
 
         <!-- Right: Certifications -->
-        <div class="lg:col-span-1 space-y-6">
-          <div class="flex items-center gap-3">
+        <div id="certifications-column" class="lg:col-span-1 space-y-6 lg:flex lg:flex-col lg:min-h-0">
+          <div class="flex items-center gap-3 lg:flex-none">
             <div class="p-2 bg-brand-500/10 border border-brand-500/20 rounded-lg text-brand-400">
               <i class="fa-solid fa-award"></i>
             </div>
             <h3 class="text-2xl font-bold text-white">자격 사항</h3>
           </div>
-          <div class="space-y-3">
+          <div class="space-y-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar lg:max-h-none lg:h-0 lg:flex-1 lg:min-h-0">
             <!-- Cert Card 1 -->
+            <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
+              <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
+              <div>
+                <h4 class="font-bold text-slate-100 text-sm">Gemini Certified Educator</h4>
+                <p class="text-xs text-slate-500">Google / 2026</p>
+              </div>
+            </div>
+            <!-- Cert Card 2 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
               <div>
@@ -347,7 +355,7 @@
                 <p class="text-xs text-slate-500">Google / 2024</p>
               </div>
             </div>
-            <!-- Cert Card 2 -->
+            <!-- Cert Card 3 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
               <div>
@@ -355,7 +363,7 @@
                 <p class="text-xs text-slate-500">KT, 한국경제신문 / 2024</p>
               </div>
             </div>
-            <!-- Cert Card 3 -->
+            <!-- Cert Card 4 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
               <div>
@@ -363,7 +371,7 @@
                 <p class="text-xs text-slate-500">한국목공교육협회 / 2023</p>
               </div>
             </div>
-            <!-- Cert Card 4 -->
+            <!-- Cert Card 5 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
               <div>
@@ -371,7 +379,7 @@
                 <p class="text-xs text-slate-500">한국산업인력공단 / 2009</p>
               </div>
             </div>
-            <!-- Cert Card 5 -->
+            <!-- Cert Card 6 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
               <div>
@@ -701,9 +709,9 @@
   <!-- Awards / Training Section -->
   <section id="awards" class="py-20 bg-darkbg-950">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-start">
         <!-- Awards and Judging -->
-        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
+        <div id="awards-card" class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
           <div class="flex items-center gap-3 mb-6">
             <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
               <i class="fa-solid fa-gavel text-lg"></i>
@@ -743,15 +751,23 @@
         </div>
 
         <!-- Professional Trainings -->
-        <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg">
-          <div class="flex items-center gap-3 mb-6">
+        <div id="training-card" class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800/60 shadow-lg md:flex md:flex-col md:min-h-0">
+          <div class="flex items-center gap-3 mb-6 md:flex-none">
             <div class="p-2 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-lg">
               <i class="fa-solid fa-book-open text-lg"></i>
             </div>
             <h3 class="text-xl font-bold text-white">전문 연수 및 외부 활동</h3>
           </div>
 
-          <div class="space-y-4 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
+          <div class="space-y-4 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar md:max-h-none md:h-0 md:flex-1 md:min-h-0">
+            <!-- Training Item -->
+            <div class="flex gap-3 pb-3 border-b border-slate-800/60">
+              <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 06 ~ 07</div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-100">초경량비행장치 무인멀티콥터 1종</h4>
+                <p class="text-xs text-slate-500">JTP, 드론버스</p>
+              </div>
+            </div>
             <!-- Training Item -->
             <div class="flex gap-3 pb-3 border-b border-slate-800/60">
               <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 01</div>
@@ -1788,6 +1804,39 @@
         closeWoodworkModal();
       }
     });
+
+    // Keep long lists inside the height set by their neighboring content.
+    const awardsCard = document.getElementById('awards-card');
+    const trainingCard = document.getElementById('training-card');
+    const experienceColumn = document.getElementById('experience-column');
+    const educationColumn = document.getElementById('education-column');
+    const certificationsColumn = document.getElementById('certifications-column');
+
+    function syncScrollableColumnHeights() {
+      if (window.matchMedia('(min-width: 768px)').matches) {
+        trainingCard.style.height = `${Math.ceil(awardsCard.getBoundingClientRect().height)}px`;
+      } else {
+        trainingCard.style.height = '';
+      }
+
+      if (window.matchMedia('(min-width: 1024px)').matches) {
+        const neighboringHeight = Math.max(
+          experienceColumn.getBoundingClientRect().height,
+          educationColumn.getBoundingClientRect().height
+        );
+        certificationsColumn.style.height = `${Math.ceil(neighboringHeight)}px`;
+      } else {
+        certificationsColumn.style.height = '';
+      }
+    }
+
+    const columnHeightObserver = new ResizeObserver(syncScrollableColumnHeights);
+    columnHeightObserver.observe(awardsCard);
+    columnHeightObserver.observe(experienceColumn);
+    columnHeightObserver.observe(educationColumn);
+    window.addEventListener('resize', syncScrollableColumnHeights);
+    window.addEventListener('load', syncScrollableColumnHeights);
+    requestAnimationFrame(syncScrollableColumnHeights);
   </script>
 </body>
 </html>
