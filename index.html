@@ -846,7 +846,7 @@
           <i class="fa-solid fa-robot animate-bounce"></i> Smart Matching System
         </div>
         <h2 class="text-3xl font-bold text-white sm:text-4xl">AI 강좌 제안 및 가능 여부 진단</h2>
-        <p class="mt-3 text-slate-400 text-sm">의뢰하고자 하는 강의 대상과 주제를 입력하시면, 강사 포트폴리오 기반의 적합도(매칭률)와 기관에 적합하게 다듬어진 매력적인 개설 강좌명, 추천 차시를 제안해 드립니다.</p>
+        <p class="mt-3 text-left text-slate-400 text-sm">의뢰하고자 하는 강의 대상과 주제를 입력하시면, 강사 포트폴리오 기반의 적합도(매칭률)와 기관에 적합하게 다듬어진 매력적인 개설 강좌명, 추천 차시를 제안해 드립니다.</p>
       </div>
 
       <!-- Analyzer Box -->
@@ -857,10 +857,11 @@
             <div>
               <label class="block text-xs font-bold text-slate-400 mb-2">1. 교육 대상</label>
               <select id="course-target" class="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-white text-sm">
-                <option value="초등생">초등학생 (기초 및 교구 체험형)</option>
-                <option value="중고등생">중·고등학생 / 첨단과학영재</option>
-                <option value="교사 및 공무원">교사 & 공무원 (스마트워크 / 직무 연수)</option>
-                <option value="일반 성인">일반 성인 (평생 교육 / 은퇴 예정자)</option>
+                <option value="초등학생">초등학생</option>
+                <option value="중학생">중학생</option>
+                <option value="고등학생">고등학생</option>
+                <option value="대학생">대학생</option>
+                <option value="성인">성인</option>
               </select>
             </div>
             <div>
@@ -924,10 +925,10 @@
                   <p id="result-feedback" class="text-xs text-slate-400 leading-relaxed mt-1">포트폴리오에 부합하는 최고의 강의 영역입니다. 실무에 사용되는 지식 맥락을 확실히 짚어드릴 수 있도록 이론과 실습의 밸런스를 조율하여 설계됩니다.</p>
                 </div>
               </div>
-              
+
               <!-- Source Badge -->
               <div class="flex justify-end pt-2">
-                <span id="matching-source-badge" class="text-[10px] bg-slate-950 px-2 py-0.5 rounded text-slate-600">Smart Engine v1.0</span>
+                <span id="matching-source-badge" class="text-[10px] bg-slate-950 border border-slate-800 px-2.5 py-1 rounded text-slate-400">분석 모델: 확인 중</span>
               </div>
             </div>
           </div>
@@ -1476,8 +1477,8 @@
       });
     });
 
-    // 6. AI 강좌 진단 시스템 (CORS 우회 및 로컬 하이브리드 가동 지원)
-    // ⚠️ [웹앱 배포 정보]: 구글 Apps Script로 Code.gs 배포 후 아래 문자열에 웹앱 주소를 넣으면 Gemini와 다이렉트로 연동됩니다.
+    // 6. AI 강좌 진단 시스템
+    // Google Apps Script가 공개 포트폴리오를 읽고 Gemini 분석 결과를 반환합니다.
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxWEja_FmFJUHUKmKXWkffFzfufs8wZyC2bh4UobGlZalkDkMtJCNIqxWJMDRW9btjh2w/exec"; 
 
     const analyzeBtn = document.getElementById('analyze-btn');
@@ -1492,15 +1493,6 @@
     const recommendedHoursText = document.getElementById('recommended-hours');
     const resultFeedback = document.getElementById('result-feedback');
     const matchingSourceBadge = document.getElementById('matching-source-badge');
-
-    // 클라이언트용 스마트 폴백 인프라 데이터베이스
-    const localSkillDB = [
-      { keys: ['아두이노', 'arduino', '피지컬', '센서', '회로', '스피커', '임베디드', '로봇', '드론'], score: 98, title: '아두이노 기반 피지컬 메이커 창의 교실', hours: 12, fb: '전기공학 전공 및 로봇시스템 엔지니어링 경력을 완벽하게 녹여낸 명쾌한 물리 컴퓨팅 교육을 선사합니다.' },
-      { keys: ['앱시트', 'appsheet', '노코드', 'nocode', '앱 개발', '앱만들기'], score: 99, title: 'AppSheet로 구현하는 나만의 스마트 업무 앱 개발', hours: 8, fb: '구글 공인 에듀케이터 Level 2의 풍부한 교육 경험을 바탕으로, 코딩 없이 실제 구동 가능한 나만의 비즈니스 앱을 안정적으로 완성합니다.' },
-      { keys: ['3d', '모델링', '프린팅', 'onshape', 'fusion360', '퓨전', '온쉐이프'], score: 95, title: 'Fusion360과 Onshape 기반의 3D 설계 및 정밀 프린팅', hours: 12, fb: '디자인 전공의 미적 레이아웃과 제조 계측제어 가공 연수를 접목하여 기하학적으로 뛰어난 정밀 프로토타입 설계를 지원합니다.' },
-      { keys: ['목공', '우드', '가구', 'diy', '카혼', '마라카스', '키트'], score: 92, title: '3D 설계 기반 가구 및 DIY 우드 악기 키트 제작 클래스', hours: 6, fb: '목공지도사 1급 자격증과 다수 기관 납품 실적을 무기로 안전하면서 조형적 아름다움과 활용성이 극대화된 DIY 키트를 제작해 나갑니다.' },
-      { keys: ['ai', '인공지능', '생성형', '머신러닝', '딥러닝', '디지털', '스마트워크', '엑셀', '노션'], score: 90, title: '생성형 AI와 에듀테크를 결합한 스마트 디지털 생산성 워크숍', hours: 8, fb: '컴퓨터교육 석사 과정에서의 활발한 에듀테크 연구 역량을 활용하여 인공지능을 일상과 업무에 실용적으로 활용하는 지름길을 가이드합니다.' }
-    ];
 
     analyzeBtn.addEventListener('click', () => {
       const target = document.getElementById('course-target').value;
@@ -1530,68 +1522,34 @@
             courseName: rawName
           })
         })
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error(`분석 서버 응답 오류 (${res.status})`);
+          return res.json();
+        })
         .then(data => {
-          updateUI(data, hours, "AI Real-time Matching (Cloud)");
+          if (!data.success) throw new Error(data.error || "분석 결과를 생성하지 못했습니다.");
+          updateUI(data, hours, data.source || "Gemini + Live Portfolio");
         })
         .catch(err => {
-          console.warn("GAS 통신 에러, 즉각 로컬 엔진으로 폴백 실행합니다.", err);
-          runLocalAnalysis(target, hours, rawName, "Local Hybrid Engine (Fallback)");
+          console.warn("AI 강좌 진단 요청에 실패했습니다.", err);
+          showAnalyzerError();
         });
       } else {
-        setTimeout(() => {
-          runLocalAnalysis(target, hours, rawName, "Local Smart Matching Engine");
-        }, 1000);
+        showAnalyzerError();
       }
     });
 
-    function runLocalAnalysis(target, hours, courseName, sourceText) {
-      let bestMatch = null;
-      let maxMatchCount = 0;
-
-      localSkillDB.forEach(skill => {
-        let matchCount = 0;
-        skill.keys.forEach(k => {
-          if (courseName.toLowerCase().includes(k)) {
-            matchCount++;
-          }
-        });
-        if (matchCount > maxMatchCount) {
-          maxMatchCount = matchCount;
-          bestMatch = skill;
-        }
-      });
-
-      let responseData = {};
-      if (bestMatch && maxMatchCount > 0) {
-        let score = bestMatch.score - Math.max(0, 5 - (maxMatchCount * 2));
-        let recommendedHoursStr = "";
-        let feedbackStr = "";
-
-        if (hours < bestMatch.hours) {
-          recommendedHoursStr = `${bestMatch.hours}시간 권장`;
-          feedbackStr = `${bestMatch.fb} 설계하신 강의 차시(${hours}차시) 대비, 깊이 있는 실습 품질 향상을 위해 ${bestMatch.hours}시간으로의 상향 조정을 제안합니다.`;
-        } else {
-          recommendedHoursStr = `${hours}시간 (최적 시수)`;
-          feedbackStr = `${bestMatch.fb} 제안해주신 ${hours}시간은 이론 수강과 개인별 맞춤 결과물을 설계하기에 적정하고 몰입도 높은 스케줄링입니다.`;
-        }
-
-        responseData = {
-          score: score,
-          recommendTitle: `[${target} 대상] ${bestMatch.title}`,
-          recommendedHours: recommendedHoursStr,
-          feedback: feedbackStr
-        };
-      } else {
-        responseData = {
-          score: 80,
-          recommendTitle: `[${target} 특강] 융합 메이커스 & 디지털 소통 클래스`,
-          recommendedHours: `${hours}시간`,
-          feedback: "강사님의 전기, 컴퓨터, 메이커 융합 실무 역량을 조합하여 해당 강의 명세서에 밀착 가공된 최선의 맞춤 커리큘럼을 실현해 드릴 수 있습니다."
-        };
-      }
-
-      updateUI(responseData, hours, sourceText);
+    function showAnalyzerError() {
+      analyzerLoader.classList.add('hidden');
+      analysisResult.classList.add('hidden');
+      placeholderResult.classList.remove('hidden');
+      placeholderResult.innerHTML = `
+        <i class="fa-solid fa-triangle-exclamation text-4xl text-amber-500/70"></i>
+        <p class="text-sm leading-relaxed text-slate-400">현재 AI 분석 서버에 연결할 수 없습니다.<br>잠시 후 다시 시도해 주세요.</p>
+      `;
+      showToast('AI 분석 서버 연결을 확인해 주세요.');
+      analyzeBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> AI 강좌 적합도 분석하기`;
+      analyzeBtn.disabled = false;
     }
 
     function updateUI(data, requestedHours, sourceText) {
@@ -1613,7 +1571,8 @@
         resultProgress.className = "h-full bg-amber-500 transition-all duration-500";
       }
 
-      matchingSourceBadge.innerText = sourceText;
+      const modelName = data.model || '백엔드 모델 정보 없음';
+      matchingSourceBadge.innerText = `분석 모델: ${modelName} · ${sourceText}`;
       analyzeBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> AI 강좌 적합도 분석하기`;
       analyzeBtn.disabled = false;
     }
