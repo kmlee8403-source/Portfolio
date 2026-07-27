@@ -1,5 +1,9 @@
 /**
- * AI 강좌 개설 가능 여부 진단 백엔드 API (Google Apps Script)
+ * 포트폴리오 백엔드 API (Google Apps Script)
+ * - 공개 포트폴리오 콘텐츠 읽기
+ * - 관리자 전용 시각적 편집, 임시 저장, 게시, 이전 버전 복원
+ * - Gemini 문구 다듬기
+ * - AI 강좌 개설 가능 여부 진단
  *
  * 필수 스크립트 속성:
  * - GEMINI_API_KEY: Google AI Studio에서 발급받은 Gemini API 키
@@ -14,11 +18,37 @@ var PORTFOLIO_URL = 'https://kmlee8403-source.github.io/Portfolio/';
 var PORTFOLIO_CACHE_KEY = 'portfolio-context-v2';
 var PORTFOLIO_CACHE_SECONDS = 600;
 var GEMINI_MODEL = 'gemini-3.6-flash';
+var PORTFOLIO_CONTENT_FOLDER = 'Portfolio CMS';
+var PORTFOLIO_PUBLISHED_FILE = 'portfolio-content-published.json';
+var PORTFOLIO_DRAFT_FILE = 'portfolio-content-draft.json';
+var PORTFOLIO_REVISION_PREFIX = 'portfolio-revision-';
+var PORTFOLIO_PUBLIC_CACHE_KEY = 'portfolio-published-content-v1';
+var PORTFOLIO_ALLOWED_PAGES = ['index', 'woodwork'];
 
-function doGet() {
+function doGet(e) {
+  var params = e && e.parameter ? e.parameter : {};
+  var action = String(params.action || '').toLowerCase();
+  var mode = String(params.mode || '').toLowerCase();
+
+  if (mode === 'editor') {
+    return getPortfolioEditorHtml_(normalizePageKey_(params.page));
+  }
+
+  if (action === 'content') {
+    var pageKey = normalizePageKey_(params.page);
+    var published = getPublishedPortfolioContent_();
+    return jsonResponse_({
+      success: true,
+      page: pageKey,
+      content: published.pages[pageKey] || {},
+      publishedAt: published.publishedAt || null,
+      version: published.version || 1
+    });
+  }
+
   return jsonResponse_({
     success: true,
-    service: 'AI course feasibility analyzer',
+    service: 'Portfolio CMS and AI course feasibility analyzer',
     portfolioUrl: PORTFOLIO_URL,
     model: GEMINI_MODEL
   });
@@ -148,7 +178,11 @@ function getPortfolioContext_() {
     throw new Error('포트폴리오를 불러오지 못했습니다. HTTP ' + response.getResponseCode());
   }
 
-  var portfolioText = buildPortfolioContext_(response.getContentText('UTF-8'));
+  var publishedContext = buildPublishedPortfolioContext_(
+    getPublishedPortfolioContent_()
+  );
+  var portfolioText = publishedContext ||
+    buildPortfolioContext_(response.getContentText('UTF-8'));
   if (!portfolioText || portfolioText.length < 500) {
     throw new Error('포트폴리오에서 충분한 내용을 추출하지 못했습니다.');
   }
@@ -158,6 +192,38 @@ function getPortfolioContext_() {
     cache.put(PORTFOLIO_CACHE_KEY, portfolioText, PORTFOLIO_CACHE_SECONDS);
   }
   return portfolioText;
+}
+
+/**
+ * 시각적 편집기에서 게시한 내용을 기존 강좌 진단 AI의 최신 근거로 사용합니다.
+ * 저장된 텍스트와 목록 HTML을 함께 읽어 카드의 상세 설명 같은 속성값도 놓치지 않습니다.
+ */
+function buildPublishedPortfolioContext_(published) {
+  if (!published || !published.pages || !published.pages.index) return '';
+
+  var page = published.pages.index;
+  var chunks = [];
+  var seen = {};
+
+  function append(value) {
+    var text = sanitizeMultilineText_(value, 30000);
+    if (!text || seen[text]) return;
+    seen[text] = true;
+    chunks.push(text);
+  }
+
+  Object.keys(page.texts || {}).forEach(function(key) {
+    append(page.texts[key]);
+  });
+
+  Object.keys(page.collections || {}).forEach(function(key) {
+    append(htmlToPortfolioText_(page.collections[key]));
+  });
+
+  var context = chunks.join('\n').slice(0, 30000);
+  return context.length >= 500
+    ? '=== 현재 게시된 포트폴리오 편집 내용 ===\n' + context
+    : '';
 }
 
 /**
@@ -420,6 +486,396 @@ function normalizeGeminiResult_(result) {
     recommendedHours: recommendedHours,
     feedback: feedback
   };
+}
+
+/**
+ * 관리자 편집 화면에서 호출하는 초기 데이터입니다.
+ * google.script.run을 통해서만 호출되며 매번 관리자 이메일을 확인합니다.
+ */
+function getPortfolioEditorBootstrap(pageKey) {
+  assertPortfolioEditor_();
+  var normalizedPage = normalizePageKey_(pageKey);
+  var draft = readPortfolioJsonFile_(PORTFOLIO_DRAFT_FILE);
+  var published = getPublishedPortfolioContent_();
+  var source = draft && draft.pages ? draft : published;
+
+  return {
+    success: true,
+    page: normalizedPage,
+    content: source.pages[normalizedPage] || {},
+    isDraft: Boolean(draft && draft.pages),
+    publishedAt: published.publishedAt || null,
+    draftUpdatedAt: draft && draft.updatedAt ? draft.updatedAt : null,
+    revisions: listPortfolioRevisions_()
+  };
+}
+
+function savePortfolioDraft(payload) {
+  assertPortfolioEditor_();
+  var request = validatePortfolioEditorPayload_(payload);
+  var current = readPortfolioJsonFile_(PORTFOLIO_DRAFT_FILE) || getPublishedPortfolioContent_();
+
+  current.version = 1;
+  current.pages = current.pages || {};
+  current.pages[request.page] = request.content;
+  current.updatedAt = new Date().toISOString();
+  current.updatedBy = Session.getActiveUser().getEmail();
+
+  writePortfolioJsonFile_(PORTFOLIO_DRAFT_FILE, current);
+  return {
+    success: true,
+    savedAt: current.updatedAt
+  };
+}
+
+function publishPortfolioContent(payload) {
+  assertPortfolioEditor_();
+  var lock = LockService.getScriptLock();
+  lock.waitLock(15000);
+
+  try {
+    var request = validatePortfolioEditorPayload_(payload);
+    var current = getPublishedPortfolioContent_();
+    var now = new Date();
+
+    current.version = 1;
+    current.pages = current.pages || {};
+    current.pages[request.page] = request.content;
+    current.publishedAt = now.toISOString();
+    current.updatedAt = current.publishedAt;
+    current.updatedBy = Session.getActiveUser().getEmail();
+
+    writePortfolioJsonFile_(PORTFOLIO_PUBLISHED_FILE, current);
+    writePortfolioJsonFile_(
+      PORTFOLIO_REVISION_PREFIX + formatRevisionTimestamp_(now) + '.json',
+      current
+    );
+    writePortfolioJsonFile_(PORTFOLIO_DRAFT_FILE, current);
+    CacheService.getScriptCache().remove(PORTFOLIO_PUBLIC_CACHE_KEY);
+    CacheService.getScriptCache().remove(PORTFOLIO_CACHE_KEY);
+
+    return {
+      success: true,
+      publishedAt: current.publishedAt,
+      revisions: listPortfolioRevisions_()
+    };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function restorePortfolioRevision(fileId, pageKey) {
+  assertPortfolioEditor_();
+  var normalizedPage = normalizePageKey_(pageKey);
+  var file = DriveApp.getFileById(String(fileId || ''));
+  var folder = getPortfolioContentFolder_();
+  var parents = file.getParents();
+  var belongsToPortfolioFolder = false;
+
+  while (parents.hasNext()) {
+    if (parents.next().getId() === folder.getId()) {
+      belongsToPortfolioFolder = true;
+      break;
+    }
+  }
+
+  if (!belongsToPortfolioFolder ||
+      file.getName().indexOf(PORTFOLIO_REVISION_PREFIX) !== 0) {
+    throw new Error('복원할 수 없는 버전입니다.');
+  }
+
+  var restored = JSON.parse(file.getBlob().getDataAsString('UTF-8'));
+  writePortfolioJsonFile_(PORTFOLIO_PUBLISHED_FILE, restored);
+  writePortfolioJsonFile_(PORTFOLIO_DRAFT_FILE, restored);
+  CacheService.getScriptCache().remove(PORTFOLIO_PUBLIC_CACHE_KEY);
+  CacheService.getScriptCache().remove(PORTFOLIO_CACHE_KEY);
+
+  return {
+    success: true,
+    content: restored.pages && restored.pages[normalizedPage]
+      ? restored.pages[normalizedPage]
+      : {},
+    publishedAt: restored.publishedAt || null,
+    revisions: listPortfolioRevisions_()
+  };
+}
+
+function improvePortfolioText(request) {
+  assertPortfolioEditor_();
+  request = request || {};
+
+  var original = sanitizeMultilineText_(request.text, 4000);
+  var instruction = sanitizeText_(request.instruction, 240);
+  var context = sanitizeMultilineText_(request.context, 1500);
+
+  if (!original) {
+    throw new Error('다듬을 문구가 비어 있습니다.');
+  }
+  if (!instruction) {
+    instruction = '전문적이고 자연스러운 포트폴리오 문구로 다듬기';
+  }
+
+  var apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
+  if (!apiKey || !apiKey.trim()) {
+    throw new Error('GEMINI_API_KEY가 설정되지 않았습니다.');
+  }
+
+  return {
+    success: true,
+    text: callGeminiRewrite_(original, instruction, context, apiKey.trim()),
+    model: GEMINI_MODEL
+  };
+}
+
+function callGeminiRewrite_(original, instruction, context, apiKey) {
+  var url = 'https://generativelanguage.googleapis.com/v1beta/models/' +
+    GEMINI_MODEL + ':generateContent';
+  var prompt = [
+    '당신은 한국어 포트폴리오 전문 에디터입니다.',
+    '원문의 사실관계, 기관명, 수치, 날짜, 기술명을 새로 만들거나 바꾸지 마세요.',
+    '결과 문구만 출력하고 설명, 따옴표, 마크다운을 붙이지 마세요.',
+    '',
+    '[수정 방식]',
+    instruction,
+    '',
+    '[주변 맥락]',
+    context || '별도 맥락 없음',
+    '',
+    '[원문]',
+    original
+  ].join('\n');
+
+  var payload = {
+    contents: [{
+      role: 'user',
+      parts: [{ text: prompt }]
+    }],
+    generationConfig: {
+      temperature: 0.35,
+      maxOutputTokens: 1400
+    }
+  };
+
+  var response = UrlFetchApp.fetch(url, {
+    method: 'post',
+    contentType: 'application/json',
+    headers: {
+      'x-goog-api-key': apiKey
+    },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
+
+  var responseCode = response.getResponseCode();
+  var responseText = response.getContentText();
+  if (responseCode !== 200) {
+    throw new Error('Gemini 문구 수정 오류 (' + responseCode + ')');
+  }
+
+  var responseJson = JSON.parse(responseText);
+  var parts = responseJson.candidates &&
+    responseJson.candidates[0] &&
+    responseJson.candidates[0].content &&
+    responseJson.candidates[0].content.parts;
+  if (!parts || !parts.length) {
+    throw new Error('Gemini 문구 수정 결과가 비어 있습니다.');
+  }
+
+  var result = parts.map(function(part) {
+    return part.text || '';
+  }).join('').trim();
+
+  result = sanitizeMultilineText_(result, 5000);
+  if (!result) {
+    throw new Error('Gemini 문구 수정 결과가 비어 있습니다.');
+  }
+  return result;
+}
+
+function getPortfolioEditorHtml_(pageKey) {
+  assertPortfolioEditor_();
+  var pagePath = pageKey === 'woodwork' ? 'woodwork.html' : '';
+  var cacheBucket = Math.floor(new Date().getTime() / 60000);
+  var response = UrlFetchApp.fetch(
+    PORTFOLIO_URL + pagePath + '?editor=' + cacheBucket,
+    {
+      method: 'get',
+      followRedirects: true,
+      muteHttpExceptions: true,
+      headers: {
+        'Cache-Control': 'no-cache'
+      }
+    }
+  );
+
+  if (response.getResponseCode() !== 200) {
+    throw new Error('포트폴리오 편집 화면을 불러오지 못했습니다.');
+  }
+
+  var configuration = [
+    '<base href="' + PORTFOLIO_URL + '">',
+    '<script>',
+    'window.PORTFOLIO_EDITOR = true;',
+    'window.PORTFOLIO_PAGE_KEY = ' + JSON.stringify(pageKey) + ';',
+    '</script>'
+  ].join('');
+  var editorScript = '<script src="' +
+    PORTFOLIO_URL +
+    'portfolio-editor.js?v=1"><\/script>';
+  var html = response.getContentText('UTF-8')
+    .replace(/<head(\s[^>]*)?>/i, function(match) {
+      return match + configuration;
+    })
+    .replace(/<\/body>/i, editorScript + '</body>');
+
+  return HtmlService
+    .createHtmlOutput(html)
+    .setTitle('포트폴리오 편집기')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.DEFAULT);
+}
+
+function getPublishedPortfolioContent_() {
+  var cache = CacheService.getScriptCache();
+  var cached = cache.get(PORTFOLIO_PUBLIC_CACHE_KEY);
+  if (cached) {
+    return JSON.parse(cached);
+  }
+
+  var content = readPortfolioJsonFile_(PORTFOLIO_PUBLISHED_FILE) || {
+    version: 1,
+    pages: {},
+    publishedAt: null
+  };
+
+  var serialized = JSON.stringify(content);
+  var serializedBytes = Utilities.newBlob(serialized).getBytes().length;
+  if (serializedBytes < 95000) {
+    cache.put(PORTFOLIO_PUBLIC_CACHE_KEY, serialized, 60);
+  }
+  return content;
+}
+
+function getPortfolioContentFolder_() {
+  var properties = PropertiesService.getScriptProperties();
+  var folderId = properties.getProperty('PORTFOLIO_CONTENT_FOLDER_ID');
+
+  if (folderId) {
+    try {
+      return DriveApp.getFolderById(folderId);
+    } catch (error) {
+      console.warn('저장된 Portfolio CMS 폴더를 찾지 못해 새로 만듭니다.');
+    }
+  }
+
+  var folders = DriveApp.getFoldersByName(PORTFOLIO_CONTENT_FOLDER);
+  var folder = folders.hasNext()
+    ? folders.next()
+    : DriveApp.createFolder(PORTFOLIO_CONTENT_FOLDER);
+  properties.setProperty('PORTFOLIO_CONTENT_FOLDER_ID', folder.getId());
+  return folder;
+}
+
+function readPortfolioJsonFile_(fileName) {
+  var folder = getPortfolioContentFolder_();
+  var files = folder.getFilesByName(fileName);
+  if (!files.hasNext()) return null;
+
+  try {
+    return JSON.parse(files.next().getBlob().getDataAsString('UTF-8'));
+  } catch (error) {
+    console.error('포트폴리오 콘텐츠 JSON 읽기 실패', fileName);
+    return null;
+  }
+}
+
+function writePortfolioJsonFile_(fileName, data) {
+  var folder = getPortfolioContentFolder_();
+  var serialized = JSON.stringify(data);
+  var files = folder.getFilesByName(fileName);
+
+  if (files.hasNext()) {
+    files.next().setContent(serialized);
+  } else {
+    folder.createFile(fileName, serialized, MimeType.PLAIN_TEXT);
+  }
+}
+
+function listPortfolioRevisions_() {
+  var folder = getPortfolioContentFolder_();
+  var files = folder.getFiles();
+  var revisions = [];
+
+  while (files.hasNext()) {
+    var file = files.next();
+    if (file.getName().indexOf(PORTFOLIO_REVISION_PREFIX) !== 0) continue;
+    revisions.push({
+      id: file.getId(),
+      name: file.getName(),
+      createdAt: file.getDateCreated().toISOString()
+    });
+  }
+
+  revisions.sort(function(a, b) {
+    return b.createdAt.localeCompare(a.createdAt);
+  });
+  return revisions.slice(0, 30);
+}
+
+function validatePortfolioEditorPayload_(payload) {
+  if (!payload || typeof payload !== 'object') {
+    throw new Error('저장할 편집 내용이 없습니다.');
+  }
+
+  var page = normalizePageKey_(payload.page);
+  var content = payload.content;
+  if (!content || typeof content !== 'object') {
+    throw new Error('편집 내용 형식이 올바르지 않습니다.');
+  }
+
+  var serialized = JSON.stringify(content);
+  if (serialized.length > 800000) {
+    throw new Error('편집 내용이 너무 큽니다.');
+  }
+
+  return {
+    page: page,
+    content: content
+  };
+}
+
+function assertPortfolioEditor_() {
+  var activeEmail = String(Session.getActiveUser().getEmail() || '').toLowerCase();
+  var properties = PropertiesService.getScriptProperties();
+  var editorEmail = String(
+    properties.getProperty('EDITOR_EMAIL') ||
+    Session.getEffectiveUser().getEmail() ||
+    ''
+  ).toLowerCase();
+
+  if (!activeEmail || !editorEmail || activeEmail !== editorEmail) {
+    throw new Error('이 포트폴리오를 편집할 권한이 없습니다.');
+  }
+}
+
+function normalizePageKey_(value) {
+  var page = String(value || 'index').toLowerCase();
+  return PORTFOLIO_ALLOWED_PAGES.indexOf(page) === -1 ? 'index' : page;
+}
+
+function sanitizeMultilineText_(value, maxLength) {
+  return String(value || '')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ')
+    .replace(/\r\n?/g, '\n')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{4,}/g, '\n\n\n')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function formatRevisionTimestamp_(date) {
+  return date.toISOString()
+    .replace(/\.\d{3}Z$/, 'Z')
+    .replace(/[:]/g, '-');
 }
 
 function jsonResponse_(data) {
