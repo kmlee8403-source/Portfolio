@@ -721,7 +721,7 @@ function getPortfolioEditorHtml_(pageKey) {
   ].join('');
   var editorScript = '<script src="' +
     PORTFOLIO_URL +
-    'portfolio-editor.js?v=1"><\/script>';
+    'portfolio-editor.js?v=2"><\/script>';
   var html = response.getContentText('UTF-8')
     .replace(/<head(\s[^>]*)?>/i, function(match) {
       return match + configuration;
