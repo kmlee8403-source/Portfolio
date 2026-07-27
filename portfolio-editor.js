@@ -4,6 +4,8 @@
   if (!window.PORTFOLIO_EDITOR || !window.google || !google.script) return;
 
   var selectedText = null;
+  var selectedTextRoot = null;
+  var selectedGroupId = '';
   var selectedItem = null;
   var originalText = '';
   var originalPrefix = '';
@@ -29,9 +31,9 @@
   function createEditorUi() {
     var style = document.createElement('style');
     style.textContent = [
-      '[data-portfolio-text-key]{border-radius:5px;transition:outline-color .15s,background .15s;}',
-      '[data-portfolio-text-key]:hover{outline:2px dashed rgba(56,189,248,.82);outline-offset:3px;background:rgba(14,165,233,.1);cursor:pointer;}',
-      '[data-portfolio-text-key][data-portfolio-text-selected="true"]{outline:2px solid #38bdf8;outline-offset:3px;background:rgba(14,165,233,.12);}',
+      '[data-portfolio-edit-group-root]{border-radius:5px;transition:outline-color .15s,background .15s;cursor:pointer;}',
+      '[data-portfolio-edit-group-root]:hover{outline:2px dashed rgba(56,189,248,.82);outline-offset:3px;background:rgba(14,165,233,.1);}',
+      '[data-portfolio-edit-group-root][data-portfolio-text-selected="true"]{outline:2px solid #38bdf8;outline-offset:3px;background:rgba(14,165,233,.12);}',
       '[data-portfolio-selected="true"]{outline:3px solid #f59e0b!important;outline-offset:5px!important;}',
       '[data-portfolio-collection]{position:relative;}',
       '[data-portfolio-collection]:hover{box-shadow:inset 0 0 0 1px rgba(14,165,233,.18);}',
@@ -212,6 +214,107 @@
     });
   }
 
+  function getLogicalTextRoot(textElement) {
+    var current = textElement.parentElement;
+    var semanticSelector = [
+      'p',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'li',
+      'button',
+      'label',
+      'dt',
+      'dd',
+      'figcaption'
+    ].join(',');
+
+    while (current && current !== document.body) {
+      if (current.matches(semanticSelector)) return current;
+      if (current.matches('span.block')) return current;
+      if (current.matches('a')) return current;
+      if (current.hasAttribute('data-portfolio-collection')) break;
+      current = current.parentElement;
+    }
+    return textElement;
+  }
+
+  function prepareEditGroups() {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-portfolio-edit-group]'),
+      function (element) {
+        element.removeAttribute('data-portfolio-edit-group');
+      }
+    );
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-portfolio-edit-group-root]'),
+      function (element) {
+        element.removeAttribute('data-portfolio-edit-group-root');
+        element.removeAttribute('data-portfolio-text-selected');
+      }
+    );
+
+    var groups = [];
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-portfolio-text-key]'),
+      function (textElement) {
+        if (textElement.closest('#portfolio-editor-ui,#pe-text-modal')) return;
+        var root = getLogicalTextRoot(textElement);
+        var group = groups.find(function (candidate) {
+          return candidate.root === root;
+        });
+        if (!group) {
+          group = {
+            root: root,
+            id: pageKey + ':group:' + groups.length
+          };
+          groups.push(group);
+          root.setAttribute('data-portfolio-edit-group-root', group.id);
+        }
+        textElement.setAttribute('data-portfolio-edit-group', group.id);
+      }
+    );
+
+    selectedText = null;
+    selectedTextRoot = null;
+    selectedGroupId = '';
+    selectedItem = null;
+    refreshSelectionUi();
+    updateItemMetaPanel();
+  }
+
+  function getSelectedTextElements() {
+    if (!selectedGroupId) return [];
+    return Array.prototype.slice.call(
+      document.querySelectorAll(
+        '[data-portfolio-edit-group="' + CSS.escape(selectedGroupId) + '"]'
+      )
+    );
+  }
+
+  function getSelectedGroupText() {
+    return getSelectedTextElements().map(function (element) {
+      return element.textContent;
+    }).join('');
+  }
+
+  function getBestGroupAnchor(elements) {
+    var best = elements[0] || null;
+    var bestScore = -Infinity;
+    elements.forEach(function (element) {
+      var score = element.textContent.trim().length;
+      if (element.closest('strong,b,em')) score -= 10000;
+      if (score > bestScore) {
+        best = element;
+        bestScore = score;
+      }
+    });
+    return best;
+  }
+
   function directCollectionItem(element, collection) {
     var current = element;
     while (current && current.parentElement !== collection) {
@@ -233,8 +336,8 @@
     var itemState = document.getElementById('pe-item-state');
     var itemButtons = ['pe-add', 'pe-copy', 'pe-up', 'pe-down', 'pe-delete'];
 
-    if (selectedText) {
-      var preview = selectedText.textContent.trim().replace(/\s+/g, ' ');
+    if (selectedGroupId) {
+      var preview = getSelectedGroupText().trim().replace(/\s+/g, ' ');
       copy.textContent = preview ? preview.slice(0, 120) : '(빈 문구)';
       openButton.disabled = false;
     } else {
@@ -251,19 +354,27 @@
   }
 
   function selectElement(element) {
-    if (selectedText) {
-      selectedText.removeAttribute('data-portfolio-text-selected');
+    if (selectedTextRoot) {
+      selectedTextRoot.removeAttribute('data-portfolio-text-selected');
     }
     if (selectedItem) {
       selectedItem.removeAttribute('data-portfolio-selected');
     }
 
     selectedText = element.closest('[data-portfolio-text-key]');
+    selectedGroupId = selectedText
+      ? selectedText.getAttribute('data-portfolio-edit-group') || ''
+      : '';
+    selectedTextRoot = selectedGroupId
+      ? document.querySelector(
+        '[data-portfolio-edit-group-root="' + CSS.escape(selectedGroupId) + '"]'
+      )
+      : null;
     var collection = element.closest('[data-portfolio-collection]');
     selectedItem = collection ? directCollectionItem(element, collection) : null;
 
-    if (selectedText) {
-      selectedText.setAttribute('data-portfolio-text-selected', 'true');
+    if (selectedTextRoot) {
+      selectedTextRoot.setAttribute('data-portfolio-text-selected', 'true');
     }
     if (selectedItem) {
       selectedItem.setAttribute('data-portfolio-selected', 'true');
@@ -296,12 +407,12 @@
 
   function openTextEditor(element) {
     if (element) selectElement(element);
-    if (!selectedText) {
+    if (!selectedGroupId) {
       setStatus('편집할 문구를 먼저 클릭해 주세요.', 'error');
       return;
     }
 
-    var rawText = selectedText.textContent;
+    var rawText = getSelectedGroupText();
     originalPrefix = (rawText.match(/^\s*/) || [''])[0];
     originalSuffix = (rawText.match(/\s*$/) || [''])[0];
     originalText = rawText.slice(
@@ -328,15 +439,21 @@
     document.getElementById('pe-text-modal').hidden = true;
     document.body.style.overflow = '';
     setModalStatus('');
-    if (selectedText) selectedText.focus({ preventScroll: true });
   }
 
   function applyTextEditor() {
-    if (!selectedText) return;
+    if (!selectedGroupId) return;
+    var groupElements = getSelectedTextElements();
+    var anchor = getBestGroupAnchor(groupElements);
+    if (!anchor) return;
     var nextText = document.getElementById('pe-text-draft').value.trim();
     var nextRawText = originalPrefix + nextText + originalSuffix;
-    if (nextRawText !== selectedText.textContent) {
-      selectedText.textContent = nextRawText;
+    if (nextRawText !== getSelectedGroupText()) {
+      groupElements.forEach(function (element) {
+        element.textContent = '';
+      });
+      anchor.textContent = nextRawText;
+      selectedText = anchor;
       setDirty(true);
       setStatus('문구를 적용했습니다. 방문자에게 보이려면 사이트에 게시하세요.', 'ok');
     }
@@ -345,11 +462,11 @@
   }
 
   function improveModalText() {
-    if (!selectedText) return;
+    if (!selectedGroupId) return;
     var textarea = document.getElementById('pe-text-draft');
     var instruction = document.getElementById('pe-ai-style').value;
-    var context = selectedText.parentElement
-      ? selectedText.parentElement.innerText.slice(0, 1200)
+    var context = selectedTextRoot
+      ? selectedTextRoot.innerText.slice(0, 1200)
       : '';
     var button = document.getElementById('pe-ai');
     var text = textarea.value.trim();
@@ -395,8 +512,12 @@
     window.PortfolioContent.ensureUniqueKeys(clone);
 
     if (resetText) {
+      var resetGroups = {};
       clone.querySelectorAll('[data-portfolio-text-key]').forEach(function (element) {
-        element.textContent = '새 항목';
+        var groupId = element.getAttribute('data-portfolio-edit-group') ||
+          element.getAttribute('data-portfolio-text-key');
+        element.textContent = resetGroups[groupId] ? '' : '새 항목';
+        resetGroups[groupId] = true;
       });
       if (clone.matches('.lecture-card')) {
         clone.setAttribute('data-id', String(Date.now()));
@@ -409,16 +530,12 @@
     }
 
     collection.insertBefore(clone, selectedItem.nextSibling);
-    selectedItem.removeAttribute('data-portfolio-selected');
-    selectedItem = clone;
-    selectedItem.setAttribute('data-portfolio-selected', 'true');
-    selectedText = clone.querySelector('[data-portfolio-text-key]');
-    if (selectedText) selectedText.setAttribute('data-portfolio-text-selected', 'true');
-    updateItemMetaPanel();
-    refreshSelectionUi();
+    prepareEditGroups();
+    var firstCloneText = clone.querySelector('[data-portfolio-text-key]');
+    if (firstCloneText) selectElement(firstCloneText);
     setDirty(true);
     setStatus(resetText ? '새 항목을 추가했습니다. 첫 문구를 편집해 주세요.' : '항목을 복제했습니다.', 'ok');
-    if (resetText && selectedText) openTextEditor(selectedText);
+    if (resetText && firstCloneText) openTextEditor(firstCloneText);
   }
 
   function deleteSelectedItem() {
@@ -428,14 +545,9 @@
     }
     var next = selectedItem.nextElementSibling || selectedItem.previousElementSibling;
     selectedItem.remove();
-    selectedItem = next;
-    selectedText = selectedItem
-      ? selectedItem.querySelector('[data-portfolio-text-key]')
-      : null;
-    if (selectedItem) selectedItem.setAttribute('data-portfolio-selected', 'true');
-    if (selectedText) selectedText.setAttribute('data-portfolio-text-selected', 'true');
-    updateItemMetaPanel();
-    refreshSelectionUi();
+    prepareEditGroups();
+    var nextText = next ? next.querySelector('[data-portfolio-text-key]') : null;
+    if (nextText) selectElement(nextText);
     setDirty(true);
     setStatus('항목을 삭제했습니다. 게시 전까지는 임시 변경입니다.', 'ok');
   }
@@ -483,15 +595,12 @@
     window.PortfolioContent.wrapTextNodes(section);
     window.PortfolioContent.ensureUniqueKeys(section);
     collection.appendChild(section);
-    selectedItem = section;
-    selectedText = section.querySelector('[data-portfolio-text-key]');
-    selectedItem.setAttribute('data-portfolio-selected', 'true');
-    if (selectedText) selectedText.setAttribute('data-portfolio-text-selected', 'true');
-    updateItemMetaPanel();
-    refreshSelectionUi();
+    prepareEditGroups();
+    var sectionText = section.querySelector('[data-portfolio-text-key]');
+    if (sectionText) selectElement(sectionText);
     setDirty(true);
     setStatus('새 자유 섹션을 추가했습니다. 제목부터 편집해 주세요.', 'ok');
-    if (selectedText) openTextEditor(selectedText);
+    if (sectionText) openTextEditor(sectionText);
   }
 
   function saveDraft() {
@@ -534,6 +643,8 @@
         window.PortfolioContent.applyState(result.content || {});
         revisions = result.revisions || revisions;
         selectedText = null;
+        selectedTextRoot = null;
+        selectedGroupId = '';
         selectedItem = null;
         refreshSelectionUi();
         updateItemMetaPanel();
@@ -639,7 +750,8 @@
 
   createEditorUi();
   bindEditorEvents();
-  refreshSelectionUi();
+  window.addEventListener('portfolio-content-applied', prepareEditGroups);
+  prepareEditGroups();
 
   serverCall('getPortfolioEditorBootstrap', pageKey)
     .then(function (result) {

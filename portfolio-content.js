@@ -69,10 +69,19 @@
 
   function cleanEditorArtifacts(root) {
     Array.prototype.forEach.call(
-      root.querySelectorAll('[contenteditable], [data-portfolio-selected]'),
+      root.querySelectorAll([
+        '[contenteditable]',
+        '[data-portfolio-selected]',
+        '[data-portfolio-text-selected]',
+        '[data-portfolio-edit-group]',
+        '[data-portfolio-edit-group-root]'
+      ].join(',')),
       function (element) {
         element.removeAttribute('contenteditable');
         element.removeAttribute('data-portfolio-selected');
+        element.removeAttribute('data-portfolio-text-selected');
+        element.removeAttribute('data-portfolio-edit-group');
+        element.removeAttribute('data-portfolio-edit-group-root');
       }
     );
   }
