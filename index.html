@@ -168,7 +168,7 @@
             </div>
             <p class="text-slate-400 text-sm mb-6">아이디어를 현실로 만드는 하드웨어 및 3D 모델링 설계 교육</p>
             
-            <ul class="space-y-3">
+            <ul class="space-y-3" data-portfolio-collection="skills-makers">
               <li class="flex items-start gap-3">
                 <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
                 <span class="text-slate-300"><strong>레이저 각인 및 조각</strong>기 장비 운용 및 제작</span>
@@ -220,7 +220,7 @@
             </div>
             <p class="text-slate-400 text-sm mb-6">업무 혁신과 코딩 없이 앱을 만드는 생산성 제고 교육</p>
             
-            <ul class="space-y-3">
+            <ul class="space-y-3" data-portfolio-collection="skills-digital">
               <li class="flex items-start gap-3">
                 <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
                 <span class="text-slate-300"><strong>Google Workspace</strong> (Drive, Sheets, Slides, Site, Classroom 등)</span>
@@ -265,7 +265,7 @@
             </div>
             <h3 class="text-2xl font-bold text-white">경력</h3>
           </div>
-          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800" data-portfolio-collection="experience-items">
             <!-- Item 1 -->
             <div class="relative pl-8">
               <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-brand-400 ring-4 ring-darkbg-950"></div>
@@ -298,7 +298,7 @@
             </div>
             <h3 class="text-2xl font-bold text-white">전공 학력</h3>
           </div>
-          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+          <div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800" data-portfolio-collection="education-items">
             <!-- Ed 1 -->
             <div class="relative pl-8">
               <div class="absolute left-1.5 top-1.5 w-3 h-3 rounded-full bg-brand-400 ring-4 ring-darkbg-950 animate-pulse"></div>
@@ -338,7 +338,7 @@
             </div>
             <h3 class="text-2xl font-bold text-white">자격 사항</h3>
           </div>
-          <div class="space-y-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar lg:max-h-none lg:h-0 lg:flex-1 lg:min-h-0">
+          <div class="space-y-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar lg:max-h-none lg:h-0 lg:flex-1 lg:min-h-0" data-portfolio-collection="certification-items">
             <!-- Cert Card 1 -->
             <div class="p-3 bg-slate-900/50 border border-slate-800/80 rounded-xl flex items-start gap-3 hover:border-slate-700 transition">
               <i class="fa-solid fa-certificate text-brand-400 mt-1"></i>
@@ -425,7 +425,7 @@
       </div>
 
       <!-- Grid for Lectures (With custom attributes for Dynamic Modals) -->
-      <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6" data-portfolio-collection="lecture-items">
         
         <!-- Card 13 -->
         <div class="lecture-card cursor-pointer bg-slate-900/40 border border-brand-500/30 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-500/60 hover:scale-[1.01] transition-all"
@@ -719,7 +719,7 @@
             <h3 class="text-xl font-bold text-white">심사 및 멘토링 경력</h3>
           </div>
           
-          <div class="space-y-6">
+          <div class="space-y-6" data-portfolio-collection="award-items">
             <!-- Award 0 -->
             <div class="border-l-4 border-brand-500 pl-4 py-1">
               <span class="text-xs font-semibold text-brand-400">운영 / 2026. 07</span>
@@ -759,7 +759,7 @@
             <h3 class="text-xl font-bold text-white">전문 연수 및 외부 활동</h3>
           </div>
 
-          <div class="space-y-4 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar md:max-h-none md:h-0 md:flex-1 md:min-h-0">
+          <div class="space-y-4 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar md:max-h-none md:h-0 md:flex-1 md:min-h-0" data-portfolio-collection="training-items">
             <!-- Training Item -->
             <div class="flex gap-3 pb-3 border-b border-slate-800/60">
               <div class="text-xs font-semibold text-slate-500 w-24 shrink-0">2026. 06 ~ 07</div>
@@ -1201,6 +1201,9 @@
     </div>
   </template>
 
+  <!-- 관리자 편집기에서 추가하는 자유 섹션 -->
+  <div id="portfolio-custom-sections" data-portfolio-collection="custom-sections"></div>
+
   <!-- Contact Bottom Call-To-Action -->
   <section class="bg-darkbg-950 text-white py-16 relative overflow-hidden border-t border-slate-900">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.15),transparent_60%)]"></div>
@@ -1358,6 +1361,11 @@
   </button>
 
   <script>
+    window.PORTFOLIO_PAGE_KEY = 'index';
+  </script>
+  <script src="portfolio-content.js"></script>
+
+  <script>
     // 1. Toast Notification Handler (Alternative to standard alert() block)
     function showToast(message, type = 'error') {
       const toast = document.getElementById('toast-notification');
@@ -1418,14 +1426,17 @@
 
     // 4. Advanced Live Search & Category Filtering
     const searchInput = document.getElementById('lecture-search');
-    const lectureCards = document.querySelectorAll('.lecture-card');
     const filterButtons = document.querySelectorAll('.category-btn');
     let currentCategory = 'all';
+
+    function getLectureCards() {
+      return document.querySelectorAll('.lecture-card');
+    }
 
     function filterLectures() {
       const searchTerm = searchInput.value.toLowerCase().trim();
 
-      lectureCards.forEach(card => {
+      getLectureCards().forEach(card => {
         const keywords = card.getAttribute('data-keywords').toLowerCase();
         const textContent = card.innerText.toLowerCase();
 
@@ -1620,8 +1631,11 @@
     }
 
     // Open Modal and Populate
-    lectureCards.forEach(card => {
-      card.addEventListener('click', () => {
+    // 편집기에서 새 강의 카드가 추가되어도 동작하도록 이벤트 위임을 사용합니다.
+    const lectureGrid = document.getElementById('lecture-grid');
+    lectureGrid.addEventListener('click', (event) => {
+      const card = event.target.closest('.lecture-card');
+      if (!card || !lectureGrid.contains(card)) return;
         const id = card.getAttribute('data-id');
         const target = card.getAttribute('data-target');
         const location = card.getAttribute('data-location');
@@ -1650,7 +1664,6 @@
           lectureModal.classList.remove('opacity-0');
         }, 50);
         document.body.style.overflow = 'hidden';
-      });
     });
 
     function closeLectureModal() {
@@ -1795,6 +1808,10 @@
     columnHeightObserver.observe(educationColumn);
     window.addEventListener('resize', syncScrollableColumnHeights);
     window.addEventListener('load', syncScrollableColumnHeights);
+    window.addEventListener('portfolio-content-applied', () => {
+      filterLectures();
+      requestAnimationFrame(syncScrollableColumnHeights);
+    });
     requestAnimationFrame(syncScrollableColumnHeights);
   </script>
 </body>
